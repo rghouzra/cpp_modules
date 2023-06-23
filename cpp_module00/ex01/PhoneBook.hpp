@@ -1,5 +1,7 @@
+#include "Contact.hpp"
+
 class PhoneBook
 {
-	public:
-		char *s[8];
+public:
+        Contact contacts[8];
 };

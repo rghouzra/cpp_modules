@@ -1,10 +1,12 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int main(int ac, char **av){
-	PhoneBook s;
+int main(){
+    PhoneBook object;
 
-	s.s[0] = av[ac - 1];
-	gets(s.s[0]);
-	std::cout << s.s[0];
+    std::cin.getline(object.contacts[0].first_name, 1023);
+    std::cin.getline(object.contacts[0].nick_name, 1023);
+    std::cin.getline(object.contacts[0].phone_number, 1023);
+    std::cin >> object.contacts[0].index;
+    std::cout<<object.contacts[0].first_name;
 }

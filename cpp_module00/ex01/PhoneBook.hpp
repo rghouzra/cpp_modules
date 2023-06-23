@@ -1,6 +1,5 @@
 class PhoneBook
 {
-public:
-	char s;
-
+	public:
+		char *s[8];
 };

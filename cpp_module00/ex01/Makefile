@@ -1,6 +1,6 @@
 NAME=phonebook
 
-srcs   =  PhoneBook.cpp
+srcs   =  PhoneBookUtils.cpp main.cpp
 header =  PhoneBook.hpp
 objs = $(srcs:.cpp=.o)
 

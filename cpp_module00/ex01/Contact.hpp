@@ -1,9 +1,12 @@
+#include <string>
+#include <iostream>
 class Contact
 {
 public:
     int index;
-    char first_name[1024];
-    char nick_name[1024];
-    char phone_number[1024];
-    char darkest_secret;
+    std::string first_name;
+    std::string nick_name;
+    std::string phone_number;
+    std::string darkest_secret;
+
 };

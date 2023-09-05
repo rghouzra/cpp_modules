@@ -2,6 +2,6 @@
 #define UTILS_H
 #include "PhoneBook.hpp"
 
-size_t sizeContacts(PhoneBook contacts);
-
+// size_t sizeContacts(PhoneBook contacts);
+// void  pushback(PhoneBook *contacts, Contact contact);
 #endif

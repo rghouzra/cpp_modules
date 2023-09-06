@@ -3,16 +3,17 @@
 void fill_contact(Contact &contact, int *index){
 	std::string *ptrs[6];
 	Contact tmp;
-	
-	ptrs[0] = &tmp.first_name;
-	ptrs[1] = &tmp.last_name;
-	ptrs[2] = &tmp.nick_name;
-	ptrs[3] = &tmp.phone_number;
-	ptrs[4] = &tmp.darkest_secret;
+
+	ptrs[0] = &tmp.getFirstName();
+	ptrs[1] = &tmp.getLastName();
+	ptrs[2] = &tmp.getNickName();
+	ptrs[3] = &tmp.getPhoneNumber();
+	ptrs[4] = &tmp.getDarkestSecret();
+	// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	for (size_t i = 0; i < 5; i++)
 	{
 		std::string s;
-		std::getline(std::cin, s);
+		std::cin >> s;
 		if(s.empty())
 			exit(1) ;
 		*ptrs[i] = s;
@@ -43,16 +44,17 @@ void print_and_trunc(std::string s){
 	}
 	
 }
-void search(Contact contact[], size_t size){
+void search(PhoneBook obj, size_t size){
+	(void)size;
 	size_t index;
 	for (size_t i = 0; i < size; i++)
 	{
 		std::cout << i<<"|";
-		print_and_trunc(contact[i].first_name);
+		print_and_trunc(obj.getContacts(i).getFirstName());
 		std::cout<<"|";
-		print_and_trunc(contact[i].last_name);
+		print_and_trunc(obj.getContacts(i).getLastName());
 		std::cout<<"|";
-		print_and_trunc(contact[i].nick_name);
+		print_and_trunc(obj.getContacts(i).getNickName());
 		std::cout<<"\n";
 	}
 	std::cin >> index;
@@ -61,32 +63,32 @@ void search(Contact contact[], size_t size){
 		std::cerr<<"out of range\n";
 		return ;
 	}
-	std::cout<<contact[index].first_name<<"\n";
-	std::cout<<contact[index].last_name<<"\n";
-	std::cout<<contact[index].nick_name<<"\n";
-	std::cout<<contact[index].phone_number<<"\n";
-	std::cout<<contact[index].darkest_secret<<"\n";
+	std::cout<<obj.getContacts(index).getFirstName()<<"\n";
+	std::cout<<obj.getContacts(index).getLastName()<<"\n";
+	std::cout<<obj.getContacts(index).getNickName()<<"\n";
+	std::cout<<obj.getContacts(index).getPhoneNumber()<<"\n";
+	std::cout<<obj.getContacts(index).getDarkestSecret()<<"\n";
 }
 
 int main(){
     PhoneBook obj;
 	std::string input;
 
-	input = "init";
 	int index = 0;
 	size_t size = 0; 
-	while(!input.empty() && input != "EXIT"){
+	while(1){
 		std::cout<<"> ";
+		input = "";
 		std::cin>> input;
-		if(!input.empty() || input == "EXIT")
+		if(input.empty() || input == "EXIT")
 			exit(1);
 		if(input == "ADD"){
-			size++;
-			index *= !(index == 7);
-			fill_contact(obj.contacts[index], & index);
+			size += (index <= 8);
+			index *= !(index == 8);
+			fill_contact(obj.getContacts(index), & index);
 		}
 		else if(input ==  "SEARCH"){
-			search(obj.contacts, size);
+			search(obj, size);
 		}
 	}
 }

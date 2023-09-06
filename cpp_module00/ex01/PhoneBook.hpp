@@ -5,7 +5,9 @@
 #include <iostream>
 class PhoneBook
 {
-    public:
+    private:
         Contact contacts[8];
+    public:
+        Contact &getContacts(int index){return contacts[index];};
 };
 #endif

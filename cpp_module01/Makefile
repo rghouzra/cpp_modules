@@ -11,12 +11,14 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 all: $(Name)
 
 $(Name): $(objs)
-	c++ $(FLAGS) $(objs)
+	c++ $(FLAGS) $(objs) -o $@
 
 %.o : %.c Zombie.hpp
-	c++ -c $(srcs) -o $@
+	c++ -c $(srcs)
 
 clean:
 	rm -rf $(objs)
 fclean:clean
 	rm -rf $(Name)
+
+re: fclean all

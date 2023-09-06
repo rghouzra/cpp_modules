@@ -6,7 +6,7 @@ objs = $(srcs:.cpp=.o)
 
 all:$(NAME)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 $(NAME):$(objs)
 	g++ $(FLAGS) $(objs) -o $@
 

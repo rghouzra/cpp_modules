@@ -10,4 +10,5 @@ int main(){
 	randomChump("adam");
 	a->~Zombie();
 	b.~Zombie();
+	delete a;
 }

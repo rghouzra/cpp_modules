@@ -7,4 +7,12 @@ int main(){
 	std::string *ptr = &str;
 	std::string &ref = str;
 
+	std::cout <<&str<<"\n";
+	std::cout <<ptr<<"\n";
+	std::cout <<&ref<<"\n";
+	std::cout <<str<<"\n";
+	if(ptr) {
+		std::cout <<*ptr<<"\n";
+	}
+	std::cout <<ref<<"\n";
 }

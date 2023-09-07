@@ -1,6 +1,5 @@
 #include "Zombie.hpp"
-#include "newZombie.hpp"
-#include "randomChump.hpp"
+
 int main(){
 	Zombie b("reda2");
 

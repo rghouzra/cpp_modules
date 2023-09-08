@@ -5,17 +5,15 @@ srcs = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 incs = Weapon.hpp HumanA.hpp HumanB.hpp
 objs = $(srcs:.cpp=.o)
 
-
-FLAGS = -Wall -Wextra -Werror -std=c++98
-
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 all: $(Name)
 
 $(Name): $(objs)
-	c++ $(FLAGS) $(objs) -o $@
+	c++ -fsanitize=address $(FLAGS) $(objs) -o $@
 
-%.o : %.c $(incs)
-	c++ -c $(srcs)
+%.o : %.cpp $(incs)
+	c++ -c $(FLAGS) $(srcs)
 
 clean:
 	rm -rf $(objs)

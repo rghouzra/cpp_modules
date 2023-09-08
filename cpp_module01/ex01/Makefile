@@ -13,8 +13,8 @@ all: $(Name)
 $(Name): $(objs)
 	c++ $(FLAGS) $(objs) -o $@
 
-%.o : %.c $(incs)
-	c++ -c $(srcs)
+%.o : %.cpp $(incs)
+	c++ $(FLAGS) -c $(srcs)
 
 clean:
 	rm -rf $(objs)

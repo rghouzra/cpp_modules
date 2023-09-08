@@ -13,8 +13,8 @@ all: $(Name)
 $(Name): $(objs)
 	c++ $(FLAGS) $(objs) -o $@
 
-%.o : %.c Zombie.hpp
-	c++ -c $(srcs)
+%.o : %.cpp Zombie.hpp
+	c++ $(FLAGS) -c $(srcs)
 
 clean:
 	rm -rf $(objs)

@@ -4,7 +4,7 @@
 */
 
 
-HumanA::HumanA(std::string str, Weapon &new_Weapon): Name(str), WeaponType(new_Weapon)
+HumanA::HumanA(std::string str, Weapon &new_Weapon):WeaponType(new_Weapon), Name(str)
 {
 	WeaponType = new_Weapon;
 	Name = str;

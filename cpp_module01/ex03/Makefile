@@ -1,7 +1,8 @@
-Name = braiiinz
+Name = fiiiight
 
-srcs = main.cpp
+srcs = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
+incs = Weapon.hpp HumanA.hpp HumanB.hpp
 objs = $(srcs:.cpp=.o)
 
 
@@ -13,7 +14,7 @@ all: $(Name)
 $(Name): $(objs)
 	c++ $(FLAGS) $(objs) -o $@
 
-%.o : %.c
+%.o : %.c $(incs)
 	c++ -c $(srcs)
 
 clean:

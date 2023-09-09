@@ -5,8 +5,7 @@ srcs = main.cpp UltimateSed.cpp
 incs = UltimateSed.hpp
 objs = $(srcs:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
-
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 all: $(Name)
 
 $(Name): $(objs)
@@ -17,6 +16,7 @@ $(Name): $(objs)
 
 clean:
 	rm -rf $(objs) *.replace
+
 fclean:clean
 	rm -rf $(Name)
 

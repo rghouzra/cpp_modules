@@ -18,15 +18,17 @@ void UltimateSed::replace(){
 		for (size_t i = 0; line[i]; i++){
 			if(line[i] == oldstring[0])
 			{
-				size_t j;
-				for (j = 0; line[i+j] && oldstring[j] && line[i+j] == oldstring[j] ; j++)
+				size_t j = 0, k = 0;
+				for (j = 0; line[i + j] && oldstring[j] && line[i+j] == oldstring[j]; j++)
 					;
-				if(j == oldstring.size())
-				for (size_t k = 0; k < newstring.size(); k++)
-				{
-					line[i+ k] = newstring[k];
+				if(j <= oldstring.size()) {
+					for (k = 0; k < newstring.size(); k++){
+						line[i+ k] = newstring[k];
+					}
+					i += oldstring.size();
 				}
 			}
+
 		}
 		outfile <<line;
 	}

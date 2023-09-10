@@ -1,8 +1,8 @@
-Name = UltimateSed 
+Name = fiiiight
 
-srcs = main.cpp UltimateSed.cpp
+srcs = main.cpp Harl.cpp
 
-incs = UltimateSed.hpp
+incs = Harl.hpp
 objs = $(srcs:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
@@ -15,7 +15,7 @@ $(Name): $(objs)
 	c++ -c $(FLAGS) $(srcs)
 
 clean:
-	rm -rf $(objs) *.replace
+	rm -rf $(objs)
 
 fclean:clean
 	rm -rf $(Name)

@@ -28,7 +28,8 @@ void Harl::complain(std::string level) {
 	{
 		if(levels[i] == level)
 		{
-			(this->*(ptrfuncs[i]))();
+			void (Harl::*ptr)(void) = ptrfuncs[i];
+			(this->*ptr)();
 			return ;
 		}
 	}

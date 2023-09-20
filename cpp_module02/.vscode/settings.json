@@ -1,0 +1,29 @@
+{
+	"files.associations": {
+		"filesystem": "cpp",
+		"__config": "cpp",
+		"system_error": "cpp",
+		"istream": "cpp",
+		"cmath": "cpp",
+		"__bit_reference": "cpp",
+		"__hash_table": "cpp",
+		"__mutex_base": "cpp",
+		"__node_handle": "cpp",
+		"__tuple": "cpp",
+		"atomic": "cpp",
+		"complex": "cpp",
+		"iterator": "cpp",
+		"memory_resource": "cpp",
+		"optional": "cpp",
+		"ostream": "cpp",
+		"sstream": "cpp",
+		"streambuf": "cpp",
+		"string": "cpp",
+		"string_view": "cpp",
+		"tuple": "cpp",
+		"unordered_map": "cpp",
+		"variant": "cpp",
+		"vector": "cpp",
+		"exception": "cpp"
+	}
+}

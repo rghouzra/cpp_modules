@@ -6,10 +6,12 @@
 class Fixed
 {
 private:
-	uint32_t value;
-	static int nb_fract_bits;
+	int32_t value;
+	static const int nb_fract_bits = 8;
 public:
 	Fixed(/* args */);
+	int getFracBits();
+	void setTheValue(const int32_t &val);
 	void operator=(const Fixed &o);
 	~Fixed();
 };

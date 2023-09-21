@@ -8,12 +8,12 @@ incs = Fixed.hpp
 
 all:$(NAME)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 $(NAME):$(objs)
 	g++ $(FLAGS) $(objs) -o $@
 
-%.o : %.cpp 
+%.o : %.cpp $(incs)
 	g++ -c $(FLAGS) $(srcs)
 
 clean:

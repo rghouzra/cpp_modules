@@ -11,12 +11,27 @@ Fixed::Fixed(const Fixed &o){
 	*this = o;
 }
 
+
+Fixed::Fixed(int i_in){
+	(void)i_in;
+}
+
+
+Fixed::Fixed(float f_in){
+	float calc;
+
+	calc = f_in  *(1 << nb_fract_bits);
+}
+
 int Fixed::getFracBits(){
 	return nb_fract_bits;
 }
+
+
 void Fixed::setRawBits(int const raw){
 	value = raw;
 }
+
 int Fixed::getRawBits(void)const{
 	std::cout  <<"getRaw called\n";
 	return value;

@@ -10,6 +10,8 @@ private:
 	static const int nb_fract_bits = 8;
 public:
 	Fixed();
+	Fixed(int i_in);
+	Fixed(float f_in);
 	Fixed (const Fixed &o);
 	void operator=(const Fixed &o);
 	~Fixed();

@@ -20,7 +20,8 @@ Fixed::Fixed(int i_in){
 Fixed::Fixed(float f_in){
 	float calc;
 
-	calc = f_in  *(1 << nb_fract_bits);
+	calc = f_in  * (1 << nb_fract_bits);
+	value = roundf(calc);
 }
 
 int Fixed::getFracBits(){

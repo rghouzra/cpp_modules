@@ -6,11 +6,16 @@ Fixed::Fixed(){
 }
 
 int Fixed::toInt( void ) const{
+	
 	return value >> nb_fract_bits;
 }
 
 float Fixed::toFloat( void ) const{
-	return value >> nb_fract_bits;
+	float a;
+	
+	a = value;
+
+	return (a / (1 << nb_fract_bits));
 }
 
 
@@ -20,11 +25,15 @@ Fixed::Fixed(const Fixed &o){
 }
 
 Fixed::Fixed(int i_in){
-	value = (i_in << nb_fract_bits);
+	std::cout <<"int constructor has been called\n";
+
+	value  = (i_in << nb_fract_bits);
 }
 
 Fixed::Fixed(float f_in){
-	value = (int)f_in << nb_fract_bits;
+	std::cout <<"float constructor has been called\n";
+	
+	value = roundf(f_in * (1 << nb_fract_bits));
 }
 
 int Fixed::getFracBits(){
@@ -46,7 +55,7 @@ void Fixed::operator=(const Fixed &o) {
 }
 
 std::ostream& operator<<(std::ostream &os, const Fixed &n){
-
+	os << n.toFloat();
 	return os;
 }
 

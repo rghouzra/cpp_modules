@@ -5,29 +5,31 @@ Fixed::Fixed(){
 	value = 0;
 }
 
+int Fixed::toInt( void ) const{
+	return value >> nb_fract_bits;
+}
+
+float Fixed::toFloat( void ) const{
+	return value >> nb_fract_bits;
+}
+
 
 Fixed::Fixed(const Fixed &o){
 	std::cout  <<"copy constructor called\n";
 	*this = o;
 }
 
-
 Fixed::Fixed(int i_in){
-	(void)i_in;
+	value = (i_in << nb_fract_bits);
 }
 
-
 Fixed::Fixed(float f_in){
-	float calc;
-
-	calc = f_in  * (1 << nb_fract_bits);
-	value = roundf(calc);
+	value = (int)f_in << nb_fract_bits;
 }
 
 int Fixed::getFracBits(){
 	return nb_fract_bits;
 }
-
 
 void Fixed::setRawBits(int const raw){
 	value = raw;
@@ -41,6 +43,11 @@ int Fixed::getRawBits(void)const{
 void Fixed::operator=(const Fixed &o) {
 	std::cout  <<"copy assignment op called\n";
 	value = o.getRawBits();
+}
+
+std::ostream& operator<<(std::ostream &os, const Fixed &n){
+
+	return os;
 }
 
 Fixed::~Fixed(){

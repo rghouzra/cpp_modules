@@ -12,11 +12,12 @@ int Fixed::toInt( void ) const{
 
 float Fixed::toFloat( void ) const{
 	float a;
-	
 	a = value;
-
 	return (a / (1 << nb_fract_bits));
 }
+
+
+/**************************/
 const Fixed &Fixed::max(const Fixed &left, const Fixed &right){
 	return ((left.value > right.value) ? left : right);
 }
@@ -29,13 +30,15 @@ Fixed &Fixed::max(Fixed &left, Fixed &right){
 Fixed &Fixed::min(Fixed &left, Fixed &right){
 	return ((left.value <= right.value) ? right : left);
 }
-
+/*******************************/
 
 Fixed Fixed::operator++(int){
 	Fixed temp = *this;
+
 	this->value ++;
 	return temp;
 }
+
 Fixed Fixed::operator--(int){
 	Fixed temp = *this;
 
@@ -52,6 +55,7 @@ Fixed Fixed::operator--(){
 	this->value--;
 	return *this;
 }
+
 bool Fixed::operator>(const Fixed &o){
 	return this->value > o.value;
 }
@@ -70,23 +74,27 @@ bool Fixed::operator==(const Fixed &o){
 bool Fixed::operator!=(const Fixed &o){
 	return this->value != o.value;
 }
-	/*arithmetic*/
+/*            arithmetic            */
 Fixed Fixed::operator+(const Fixed &o){
 	Fixed res;
 
 	res.value = this->value + o.value;
 	return res;
 }
+
+
 Fixed Fixed::operator-(const Fixed &o){
 	Fixed res;
 
 	res.value = this->value - o.value;
 	return res;
 }
+
+
 Fixed Fixed::operator*(const Fixed &o){
 	Fixed res;
 
-	res.value = this->value * o.value;
+	res.value = (this->toFloat()) * o.value;
 	return res;
 }
 Fixed Fixed::operator/(const Fixed &o){

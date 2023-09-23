@@ -37,10 +37,10 @@ public:
 	Fixed operator--(int);
 	/***********************/
 
-	const Fixed &max(const Fixed &left, const Fixed &right);
-	const Fixed &min(const Fixed &left, const Fixed &right);
-	Fixed &max(Fixed &left, Fixed &right);
-	Fixed &min(Fixed &left, Fixed &right);
+	static const Fixed &max(const Fixed &left, const Fixed &right);
+	static const Fixed &min(const Fixed &left, const Fixed &right);
+	static Fixed &max(Fixed &left, Fixed &right);
+	static Fixed &min(Fixed &left, Fixed &right);
 
 	/******************************/
 	int toInt( void ) const;

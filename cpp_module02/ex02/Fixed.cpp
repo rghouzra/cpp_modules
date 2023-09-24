@@ -78,7 +78,7 @@ bool Fixed::operator!=(const Fixed &o){
 Fixed Fixed::operator+(const Fixed &o){
 	Fixed res;
 
-	res.value = this->value + o.value;
+	res.value = (this->value + o.value);
 	return res;
 }
 
@@ -86,7 +86,7 @@ Fixed Fixed::operator+(const Fixed &o){
 Fixed Fixed::operator-(const Fixed &o){
 	Fixed res;
 
-	res.value = this->value - o.value;
+	res.value = (this->value - o.value);
 	return res;
 }
 
@@ -94,13 +94,13 @@ Fixed Fixed::operator-(const Fixed &o){
 Fixed Fixed::operator*(const Fixed &o){
 	Fixed res;
 
-	res.value = (this->toFloat()) * o.value;
+	res.value = ((this->value) * o.value) / (1 << nb_fract_bits);
 	return res;
 }
 Fixed Fixed::operator/(const Fixed &o){
 	Fixed res;
 
-	res.value = this->value / o.value;
+	res.value = ((this->value) * ((1 << nb_fract_bits)) / o.value);
 	return res;
 }
 

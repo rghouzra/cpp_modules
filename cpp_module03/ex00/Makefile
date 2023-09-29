@@ -1,6 +1,6 @@
 NAME = ClapTrap 
 
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror
 
 CC = c++ 
 
@@ -27,5 +27,3 @@ fclean : clean
 	rm -rf $(NAME) 
 
 re : fclean all 
-
-.PHONY : all clean fclean re

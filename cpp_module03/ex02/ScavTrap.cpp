@@ -30,17 +30,6 @@ ScavTrap::ScavTrap(const ScavTrap& obj)
         *this = obj;
 }
 
-void ScavTrap::attack(const std::string& target){
-    	if(energy_points > 0 && hit_points > 0){
-		std::cout <<"scavtrap "<< name << " attacks " << target<<\
-		", causing "<<  attack_damage <<" points of damage!\n";
-		energy_points--;
-		attack_damage = (attack_damage > hit_points) ? attack_damage -= hit_points : 0;
-	}
-	else
-		std::cout << "Can't attack\n";
-}
-
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
 {
     std::cout << "Copy Assignment Operator Called" << std::endl;

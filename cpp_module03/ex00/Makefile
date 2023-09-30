@@ -15,10 +15,10 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME) 
 
 $(NAME) : $(OBJ)
-	$(CC) $(CXXFLAGS) $(STD) $(OBJ) -o $(NAME) 
+	$(CC) $(CPPFLAGS) $(STD) $(OBJ) -o $(NAME) 
 
 %.o : %.cpp $(INC)
-	$(CC) $(CXXFLAGS) -c $< -o $@ 
+	$(CC) $(CPPFLAGS) $(STD) -c $< -o $@ 
 
 clean :
 	rm -rf $(OBJ) 

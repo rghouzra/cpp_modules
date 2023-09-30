@@ -1,14 +1,14 @@
 NAME = ScavTrap
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 CC = c++
 
 STD = -std=c++98
 
-SRC = ScavTrap.cpp main.cpp ClapTrap.cpp
+SRC = ScavTrap.cpp main.cpp ClapTrap.cpp FragTrap.cpp
 
-INC = ScavTrap.hpp ClapTrap.hpp
+INC = ScavTrap.hpp ClapTrap.hpp FragTrap.hpp
 
 OBJ = $(SRC:.cpp=.o)
 all: $(NAME)

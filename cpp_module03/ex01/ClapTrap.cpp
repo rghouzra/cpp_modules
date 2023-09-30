@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout <<"Default constructor is called\n";
+	std::cout <<"Claptrap Default constructor is called\n";
 }
 
 ClapTrap::ClapTrap(std::string _name)
 {
-	std::cout << "paramterized is called\n";
+	std::cout << "Claptrap paramterized is called\n";
 	name = _name;
 	energy_points = 10;
 	hit_points = 10;
@@ -16,12 +16,12 @@ ClapTrap::ClapTrap(std::string _name)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout <<"Destructor " << name <<" is called\n";
+	std::cout <<"Claptrap Destructor " << name <<" is called\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap const &obj)
 {
-	std::cout << "Copy Constructor Called" << std::endl;
+	std::cout << "Claptrap Copy Constructor Called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }

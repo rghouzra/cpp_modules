@@ -1,11 +1,11 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
 int main()
 {
-    ScavTrap a("reda");
+    FragTrap a("reda");
 
-    a.guardGate();
+	a.highFivesGuys();
 	std::cout << a.GetEnergyPoints() << " " <<a.GetHitPoints() << "\n";
 	a.attack("Foo");
 	std::cout << a.GetEnergyPoints() << " " <<a.GetHitPoints() << "\n";

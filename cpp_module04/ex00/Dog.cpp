@@ -3,6 +3,7 @@
 Dog::Dog()
 {
 	std::cout << "Dog : Default Constructor Called" << std::endl;
+	this->settype("Dog");
 }
 
 Dog::~Dog()
@@ -22,8 +23,12 @@ Dog	&Dog::operator= (const Dog &obj)
 	std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
-		//	this->attributes = obj.attributes;
-		//	...
+		this->settype(obj.getType());
 	}
 	return (*this);
+}
+
+
+void Dog::makeSound()const{
+	std::cout<<"Dog sound\n";
 }

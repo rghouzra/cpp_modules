@@ -1,26 +1,17 @@
-#ifndef _Dog_HPP_
-#define _Dog_HPP_
+#ifndef Dog_HPP
+#define Dog_HPP
 
-#include <iostream>
-
-// ******************************************************** //
-//                         CLASSES                         //
-// ****************************************************** //
-
-class	Dog
+#include "Animal.hpp"
+class	Dog : public Animal
 {
 	public	:
 		Dog ();
 		Dog (Dog const &obj);
 		~Dog ();
 		Dog &operator= (const Dog &obj);
-
+		/*****************/
+		void makeSound() const;
 	private	:
-		//	DataType	attributes.
 };
-
-// ******************************************************** //
-//                        FUNCTIONS                        //
-// ****************************************************** //
 
 #endif

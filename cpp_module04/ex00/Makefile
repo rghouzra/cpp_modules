@@ -6,9 +6,9 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = Animal.cpp main.cpp 
+SRC = Animal.cpp main.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
-INC = Animal.hpp 
+INC = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 
 OBJ = $(SRC:.cpp=.o) 
 

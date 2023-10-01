@@ -1,26 +1,19 @@
-#ifndef _Cat_HPP_
-#define _Cat_HPP_
+#ifndef Cat_HPP
+#define Cat_HPP
 
 #include <iostream>
-
-// ******************************************************** //
-//                         CLASSES                         //
-// ****************************************************** //
-
-class	Cat
+#include "Animal.hpp"
+class	Cat : public Animal
 {
 	public	:
 		Cat ();
 		Cat (Cat const &obj);
 		~Cat ();
 		Cat &operator= (const Cat &obj);
-
+		/**/
+		void makeSound() const;
 	private	:
-		//	DataType	attributes.
-};
 
-// ******************************************************** //
-//                        FUNCTIONS                        //
-// ****************************************************** //
+};
 
 #endif

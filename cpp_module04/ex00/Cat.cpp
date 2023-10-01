@@ -3,6 +3,7 @@
 Cat::Cat()
 {
 	std::cout << "Cat : Default Constructor Called" << std::endl;
+	this->settype("Cat");
 }
 
 Cat::~Cat()
@@ -22,8 +23,12 @@ Cat	&Cat::operator= (const Cat &obj)
 	std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
-		//	this->attributes = obj.attributes;
-		//	...
+		this->settype(obj.getType());
 	}
 	return (*this);
+}
+
+
+void Cat::makeSound()const{
+	std::cout <<"cat sound\n";
 }

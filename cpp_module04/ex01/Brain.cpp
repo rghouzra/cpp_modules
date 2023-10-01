@@ -18,15 +18,15 @@ Brain::Brain(Brain const &obj)
 }
 
 std::string Brain::getideas(size_t index) const{
-	if(!(index < 0 || index > NB_OF_IDEAS))
+	if((index >= 0 && index < NB_OF_IDEAS))
 		return ideas[index];
 	return "out of range";
 }
 
 void Brain::setideas(const std::string *oth) {
 	if(oth)
-	for(size_t i = 0; i < NB_OF_IDEAS; i++)
-		ideas[i] = oth[i];
+		for(size_t i = 0; i < NB_OF_IDEAS; i++)
+			ideas[i] = oth[i];
 }
 
 

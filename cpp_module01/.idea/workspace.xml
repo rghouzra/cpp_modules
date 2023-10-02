@@ -7,9 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9132e8a8-b1f4-4651-975d-89ee91c739d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ex03/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/ex03/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cpp_module02/ex00/Fixed.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module02/ex00/Fixed.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cpp_module02/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module02/ex00/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Animal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Animal.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Animal.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Animal.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Cat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Cat.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Cat.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Cat.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Dog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Dog.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Dog.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Dog.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp_module04/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp_module04/ex00/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +32,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/rghouzra/cpp_modules/cpp_module01",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/rghouzra/cpp_modules/cpp_module01&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694952119473</updated>
       <workItem from="1694952121165" duration="67000" />
+      <workItem from="1696169543816" duration="2000" />
     </task>
     <servers />
   </component>

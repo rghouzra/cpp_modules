@@ -16,8 +16,12 @@ Cat::~Cat()
 Cat::Cat(Cat const &obj)
 {
 	std::cout << "Copy Constructor Called" << std::endl;
-	if (this != &obj)
-		*this = obj;
+		if (this != &obj)
+	{
+		this->settype(obj.getType());
+		this->cerveau = new Brain;
+		*this->cerveau = *obj.GetCerveau();
+	}
 }
 
 Cat	&Cat::operator= (const Cat &obj)
@@ -36,9 +40,9 @@ Brain *Cat::GetCerveau() const{
 }
 
 void Cat::SetCerveau(Brain *oth){
-	cerveau = new Brain;
-	if(oth)
+	if(oth){
 		*cerveau = *oth;
+	}
 }
 
 

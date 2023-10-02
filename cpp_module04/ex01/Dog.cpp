@@ -17,7 +17,11 @@ Dog::Dog(Dog const &obj)
 {
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
-		*this = obj;
+	{
+		this->settype(obj.getType());
+		this->cerveau = new Brain;
+		*this->cerveau = *obj.GetCerveau();
+	}
 }
 
 
@@ -26,9 +30,9 @@ Brain *Dog::GetCerveau() const{
 }
 
 void Dog::SetCerveau(Brain *oth){
-	cerveau = new Brain;
-	if(oth)
+	if(oth){
 		*cerveau = *oth;
+	}
 }
 
 Dog	&Dog::operator= (const Dog &obj)

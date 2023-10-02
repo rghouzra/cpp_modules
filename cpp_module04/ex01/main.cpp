@@ -10,7 +10,11 @@ void check(){
 void func(){
 	{
 		Dog a;
+		// Dog c;
 		Dog b(a);
+		Cat t;
+		Cat v(t);
+		// c = a;
 	}
 	Animal *arr[10];
 	for (size_t i = 0; i < 10; i++)
@@ -26,9 +30,10 @@ void func(){
 
 int main()
 {
-	// atexit(check);
+	atexit(check);
 	std::cout << "/*******************test ex01***************************/";
 	func();
+	return 0;
 	std::cout << "/*******************test ex01***************************/";
 	{
 		const Animal* meta = new Animal();

@@ -1,21 +1,21 @@
-#ifndef Animal_HPP
-#define Animal_HPP
+#ifndef WrongAnimal_HPP
+#define WrongAnimal_HPP
 
 #include <iostream>
 
-class	AAnimal
+class	WrongAnimal
 {
 	public	:
 	/***************************/
-		AAnimal ();
-		AAnimal (AAnimal const &obj);
-		virtual ~AAnimal ();
-		AAnimal &operator= (const AAnimal &obj);
+		WrongAnimal ();
+		WrongAnimal (WrongAnimal const &obj);
+		~WrongAnimal ();
+		WrongAnimal &operator= (const WrongAnimal &obj);
 	/***************************/
 	void settype(const std::string &oth);
 	std::string getType(void) const;
 	/**************************/
-	virtual void makeSound()const = 0;
+	void makeSound()const;
 	/******************************/
 	protected	:
 		std::string type;

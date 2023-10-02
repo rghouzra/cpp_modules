@@ -12,8 +12,8 @@ int Fixed::toInt( void ) const{
 
 float Fixed::toFloat( void ) const{
 	float a;
-	a = value;
-	return (a / (1 << nb_fract_bits));
+	a = (float)value;
+	return (a /(1 << nb_fract_bits));
 }
 
 
@@ -74,7 +74,9 @@ bool Fixed::operator==(const Fixed &o){
 bool Fixed::operator!=(const Fixed &o){
 	return this->value != o.value;
 }
+
 /*            arithmetic            */
+
 Fixed Fixed::operator+(const Fixed &o){
 	Fixed res;
 
@@ -82,14 +84,12 @@ Fixed Fixed::operator+(const Fixed &o){
 	return res;
 }
 
-
 Fixed Fixed::operator-(const Fixed &o){
 	Fixed res;
 
 	res.value = (this->value - o.value);
 	return res;
 }
-
 
 Fixed Fixed::operator*(const Fixed &o){
 	Fixed res;

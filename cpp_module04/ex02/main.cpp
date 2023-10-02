@@ -26,7 +26,7 @@ void func(){
 
 int main()
 {
-	// atexit(check);
+	atexit(check);
 	std::cout << "/*******************test ex01***************************/";
 	func();
 	std::cout << "/*******************test ex01***************************/";

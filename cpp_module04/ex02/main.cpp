@@ -33,7 +33,7 @@ int main()
 	func();
 	std::cout << "/*******************test ex01***************************/";
 	{
-		// const AAnimal* meta = new AAnimal(); error
+		// const AAnimal* meta = new AAnimal(); error because aanimal is abstract class
 		const AAnimal* j = new Dog();
 		const AAnimal* i = new Cat();
 		std::cout << j->getType() << " " << std::endl;

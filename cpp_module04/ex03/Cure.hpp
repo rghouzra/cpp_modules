@@ -3,15 +3,17 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class	Cure : AMateria
+class	Cure : public AMateria , public ICharacter
 {
 	public	:
 		Cure ();
 		Cure (Cure const &obj);
 		~Cure ();
 		Cure &operator= (const Cure &obj);
-		
+		void use(ICharacter& target);
+		AMateria* clone();
 	private	:
 		//	DataType	attributes.
 };

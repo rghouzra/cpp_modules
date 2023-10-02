@@ -18,6 +18,16 @@ Cure::Cure(Cure const &obj)
 		*this = obj;
 }
 
+AMateria* Cure::clone(){
+	AMateria *ptr;
+
+	ptr = new Cure;
+	return ptr;
+}
+
+void Cure::use(ICharacter& target){
+		std::cout <<"* heals "<<target.getName() <<"’s wounds *\n";
+}
 Cure	&Cure::operator= (const Cure &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;

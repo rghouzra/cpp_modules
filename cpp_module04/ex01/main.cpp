@@ -8,18 +8,24 @@ void check(){
 }
 
 void func(){
-		// const Animal* j = new Dog();
-		const Animal* i = new Cat();
-		// delete j;//should not create a leak
-		delete i;
-		i = NULL;
+	Animal *arr[10];
+	for (size_t i = 0; i < 10; i++)
+	{
+		if(i < 5)
+			arr[i] = new Dog;
+		else
+			arr[i] = new Cat;
+	}
+	for (size_t i = 0; i < 10; i++)
+		delete arr[i];
 }
 
 int main()
 {
-	
 	// atexit(check);
+	std::cout << "/*******************test ex01***************************/";
 	func();
+	std::cout << "/*******************test ex01***************************/";
 	return 0;
 	{
 		const Animal* meta = new Animal();

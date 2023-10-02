@@ -24,6 +24,7 @@ Dog::Dog(Dog const &obj)
 Brain *Dog::GetCerveau() const{
 	return cerveau;
 }
+
 void Dog::SetCerveau(Brain *oth){
 	cerveau = new Brain;
 	if(oth)

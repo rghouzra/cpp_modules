@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "ICharacter.hpp"
-
+#include "AMateria.hpp"
 class	Character : ICharacter
 {
 	public	:
@@ -19,6 +19,7 @@ class	Character : ICharacter
 		void use(int idx, ICharacter& target);
 	private	:
 		std::string name;
+		AMateria **slot;
 };
 
 #endif

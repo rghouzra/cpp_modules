@@ -18,8 +18,8 @@ class	AMateria
 		void setType(const std::string &oth);
 		/******************/
 		virtual AMateria* clone() const = 0;
-		// virtual void use(ICharacter& target);
-	protected	:
+		virtual void use(ICharacter& target);
+	protected:
 		std::string type;
 };
 

@@ -30,6 +30,10 @@ void AMateria::setType(const std::string &oth){
 	type = oth;
 }
 
+void AMateria::use(ICharacter& target){
+	(void)target;
+}
+
 AMateria	&AMateria::operator= (const AMateria &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;

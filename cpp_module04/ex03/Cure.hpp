@@ -13,7 +13,7 @@ class	Cure : public AMateria
 		~Cure ();
 		Cure &operator= (const Cure &obj);
 		void use(ICharacter& target);
-		AMateria* clone();
+		AMateria* clone() const;
 	private	:
 		//	DataType	attributes.
 };

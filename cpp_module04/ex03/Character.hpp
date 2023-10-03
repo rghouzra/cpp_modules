@@ -9,6 +9,7 @@ class	Character : ICharacter
 {
 	public	:
 		Character ();
+		Character (std::string _name);
 		Character (Character const &obj);
 		~Character ();
 		Character &operator= (const Character &obj);
@@ -17,9 +18,10 @@ class	Character : ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		AMateria *getSlotAtIndex(int index) const;
 	private	:
 		std::string name;
-		AMateria **slot;
+		AMateria *slot[4];
 };
 
 #endif

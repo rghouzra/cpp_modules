@@ -18,7 +18,7 @@ Cure::Cure(Cure const &obj)
 		*this = obj;
 }
 
-AMateria* Cure::clone(){
+AMateria* Cure::clone() const{
 	AMateria *ptr;
 
 	ptr = new Cure;

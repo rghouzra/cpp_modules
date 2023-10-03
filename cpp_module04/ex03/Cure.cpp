@@ -28,12 +28,10 @@ AMateria* Cure::clone(){
 void Cure::use(ICharacter& target){
 		std::cout <<"* heals "<<target.getName() <<"’s wounds *\n";
 }
+
 Cure	&Cure::operator= (const Cure &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	if (this != &obj)
-	{
-		this->setType(obj.getType());
-	}
+	(void)obj;
 	return (*this);
 }

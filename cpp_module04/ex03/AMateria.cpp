@@ -33,9 +33,6 @@ void AMateria::setType(const std::string &oth){
 AMateria	&AMateria::operator= (const AMateria &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	if (this != &obj)
-	{
-		this->type = obj.getType();
-	}
+	(void)obj;
 	return (*this);
 }

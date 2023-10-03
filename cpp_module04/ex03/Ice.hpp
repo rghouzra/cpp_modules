@@ -5,7 +5,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class	Ice : AMateria, ICharacter
+class	Ice : public AMateria
 {
 	public	:
 		Ice ();
@@ -15,7 +15,7 @@ class	Ice : AMateria, ICharacter
 		void use(ICharacter&target);
 		AMateria* clone();
 	private	:
-	
+
 };
 
 #endif

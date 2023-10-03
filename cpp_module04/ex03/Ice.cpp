@@ -21,10 +21,7 @@ Ice::Ice(Ice const &obj)
 Ice	&Ice::operator= (const Ice &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	if (this != &obj)
-	{
-		this->setType(obj.getType());
-	}
+	(void)obj;
 	return (*this);
 }
 

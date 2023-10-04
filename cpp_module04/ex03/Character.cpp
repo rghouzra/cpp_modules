@@ -5,13 +5,17 @@ Character::Character()
 	name = "undefined";
 	std::cout << "Character : Default Constructor Called" << std::endl;
 	for (size_t i = 0; i < 4; i++){
-		slot[i] = NULL;
+		slot[i] = (AMateria*)0;
 	}
-	
 }
 
 Character::Character (std::string _name){
 	name = _name;
+	for (size_t i = 0; i < 4; i++)
+	{
+		slot[i] = NULL;
+	}
+	
 }
 
 Character::~Character()
@@ -36,6 +40,8 @@ Character::Character(Character const &obj)
 				slot[i] = ptr->clone();
 				*slot[i] = *ptr;
 			}
+			else
+				slot[i] = (AMateria *)0x0;
 			this->name = obj.getName();
 		}
 	}
@@ -73,7 +79,7 @@ void Character::equip(AMateria* m){
 		return ;
 	for (size_t i = 0; i < 4; i++)
 	{
-		if(slot[i] == NULL){
+		if(!slot[i]){
 			slot[i] = m;
 			return ;
 		}
@@ -87,6 +93,8 @@ void Character::unequip(int idx){
 }
 void Character::use(int idx, ICharacter& target){
 	if (idx >=0 && idx < 4 && slot[idx]){
+		for(int i = 0;i < 4; i++)
+			printf("%p\n", slot[idx]);
 		slot[idx]->use(target);
 	}
 }

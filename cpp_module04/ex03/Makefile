@@ -1,6 +1,6 @@
 NAME = Animal 
 
-CXXFLAGS = -Wall -Wextra -Werror # -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror # -fsanitize=address -g
 
 CC = c++ 
 

@@ -6,9 +6,12 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = AMateria.cpp  Cure.cpp Character.cpp Ice.cpp main.cpp
+SRC = AMateria.cpp  Cure.cpp Character.cpp\
+	Ice.cpp main.cpp MateriaSource.cpp
 
-INC =   Ice.hpp Character.hpp  Cure.hpp   AMateria.hpp
+INC =   Ice.hpp Character.hpp \
+	Cure.hpp AMateria.hpp MateriaSource.hpp ICharacter.hpp\
+	IMateriaSource.hpp
 
 OBJ = $(SRC:.cpp=.o) 
 

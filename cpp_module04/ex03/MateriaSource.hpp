@@ -13,6 +13,7 @@ class	MateriaSource : public IMateriaSource
 		MateriaSource &operator= (const MateriaSource &obj);
 		void learnMateria(AMateria *m);
 		AMateria *createMateria(std::string const & type);
+		AMateria *getSlotAtIndex(int index) const;
 	private	:
 		AMateria *slots[4];
 };

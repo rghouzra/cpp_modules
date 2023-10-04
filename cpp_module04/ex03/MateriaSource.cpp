@@ -23,24 +23,53 @@ MateriaSource::MateriaSource(MateriaSource const &obj)
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj){
 		for(int i = 0; i < 4; i++){
+			if(slots[i])
+				delete slots[i];
+			slots[i] = obj.getSlotAtIndex(i);
 		}
 	}
+}
+
+AMateria *MateriaSource::getSlotAtIndex(int index) const{
+	if(index >= 0 && index < 4)
+		return slots[index];
 }
 
 MateriaSource	&MateriaSource::operator= (const MateriaSource &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj){
-		
+		for(int i = 0; i < 4; i++){
+			AMateria *ptr = obj.getSlotAtIndex(i);
+			if(slots[i])
+				delete slots[i];
+			slots[i] = ptr;
+		}
 	}
 	return (*this);
 }
 
 
 void MateriaSource::learnMateria(AMateria *m){
-
+	if(!m)
+		return ;
+	for (size_t i = 0; i < 4; i++)
+	{
+		if(slots[i] == NULL){
+			slots[i] = m->clone();
+			return ;
+		}
+	}
+	
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type){
-	
+	for(int i = 0; i < 4; i++){
+		if(slots[i]){
+			if(slots[i]->getType() == type){
+				return slots[i]->clone();
+			}
+		}
+	}
+	return NULL;
 }

@@ -93,8 +93,6 @@ void Character::unequip(int idx){
 }
 void Character::use(int idx, ICharacter& target){
 	if (idx >=0 && idx < 4 && slot[idx]){
-		for(int i = 0;i < 4; i++)
-			printf("%p\n", slot[idx]);
 		slot[idx]->use(target);
 	}
 }

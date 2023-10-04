@@ -57,7 +57,7 @@ void MateriaSource::learnMateria(AMateria *m){
 	for (size_t i = 0; i < 4; i++)
 	{
 		if(slots[i] == NULL){
-			slots[i] = m->clone();
+			slots[i] = m;
 			return ;
 		}
 	}

@@ -4,12 +4,15 @@
 #include "AMateria.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
+
+
 void check(){
 	system("leaks Animal");
 }
 
 int main()
 {
+	atexit(check);
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

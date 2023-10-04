@@ -1,16 +1,16 @@
-#ifndef AMateria_HPP
-#define AMateria_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
 #include <iostream>
 #include "ICharacter.hpp"
-
+class ICharacter;
 class	AMateria
 {
 	public	:
 		/******************/
 		AMateria ();
 		AMateria (AMateria const &obj);
-		~AMateria ();
+		virtual ~AMateria ();
 		AMateria(std::string const & type);
 		AMateria &operator= (const AMateria &obj);
 		/******************/

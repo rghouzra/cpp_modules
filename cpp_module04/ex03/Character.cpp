@@ -60,6 +60,7 @@ Character	&Character::operator= (const Character &obj)
 AMateria *Character::getSlotAtIndex(int index) const{
 	if(index >= 0 && index < 4)
 		return slot[index];
+	return NULL;
 }
 
 std::string const & Character::getName() const{

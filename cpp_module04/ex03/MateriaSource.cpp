@@ -33,6 +33,7 @@ MateriaSource::MateriaSource(MateriaSource const &obj)
 AMateria *MateriaSource::getSlotAtIndex(int index) const{
 	if(index >= 0 && index < 4)
 		return slots[index];
+	return NULL;
 }
 
 MateriaSource	&MateriaSource::operator= (const MateriaSource &obj)

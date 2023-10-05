@@ -11,11 +11,9 @@ Character::Character()
 
 Character::Character (std::string _name){
 	name = _name;
-	for (size_t i = 0; i < 4; i++)
-	{
+	for (size_t i = 0; i < 4; i++){
 		slot[i] = NULL;
 	}
-	
 }
 
 Character::~Character()
@@ -87,7 +85,7 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-	if(idx >= 0 && idx < 3){
+	if(idx >= 0 && idx < 3 && slot[idx]){
 		slot[idx] = NULL;
 	}
 }

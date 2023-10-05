@@ -21,7 +21,7 @@ Character::~Character()
 	std::cout << "Character : Destructor Called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
-		std::cout << slot[i] << "\tDEBUG\n";
+		// std::cout << slot[i] << "\tDEBUG\n";
 		if(slot[i]){
 			delete slot [i];
 		}

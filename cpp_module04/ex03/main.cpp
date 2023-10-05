@@ -10,10 +10,8 @@ void check(){
 	system("leaks Animal");
 }
 
-int main()
-{
-	atexit(check);
-	
+int main2()
+{	
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -30,4 +28,12 @@ int main()
 	delete me;
 	delete src;
 	return 0;
+}
+
+int main(){
+	atexit(check);
+
+	ICharacter *ch;
+	ch = new Character;
+	main2();
 }

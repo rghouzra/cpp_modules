@@ -25,7 +25,14 @@ MateriaSource::MateriaSource(MateriaSource const &obj)
 		for(int i = 0; i < 4; i++){
 			if(slots[i])
 				delete slots[i];
-			slots[i] = obj.getSlotAtIndex(i);
+			AMateria *p = obj.getSlotAtIndex(i);
+			if(p)
+			{
+				slots[i] = p->clone();
+				*slots[i] = *p;
+			}
+			else
+				slots[i] = NULL;
 		}
 	}
 }

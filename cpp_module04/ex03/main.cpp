@@ -33,7 +33,24 @@ int main2()
 int main(){
 	atexit(check);
 
-	ICharacter *ch;
+	Character *ch;
 	ch = new Character;
-	main2();
+	AMateria *tab[4] = {new Cure, new Ice, new Cure, new Ice};
+	ch->equip(tab[0]);
+	ch->equip(tab[1]);
+	ch->equip(tab[2]);
+	ch->equip(tab[3]);
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		std::cout << ch->getSlotAtIndex(i)->getType()  << "\n";
+	}
+	for (size_t i = 0; i < 4; i++){
+		ch->unequip(i);
+	}
+	for (size_t i = 0; i < 4; i++){
+		delete tab[i];
+	}
+	delete ch;
+	// main2();
 }

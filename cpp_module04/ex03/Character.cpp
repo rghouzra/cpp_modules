@@ -21,6 +21,7 @@ Character::~Character()
 	std::cout << "Character : Destructor Called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
+		std::cout << slot[i] << "\tDEBUG\n";
 		if(slot[i]){
 			delete slot [i];
 		}
@@ -85,7 +86,7 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-	if(idx >= 0 && idx < 3 && slot[idx]){
+	if(idx >= 0 && idx <= 3 && slot[idx] != NULL){
 		slot[idx] = NULL;
 	}
 }

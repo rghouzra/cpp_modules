@@ -2,16 +2,16 @@
 #include <cstring>
 
 void
-PrintInUpper(const char *s) {
+PrintInUpper(const std::string s) {
 	if(s) {
 		for (size_t i = 0; s[i]; i++)
-			std::cout << (char)toupper(s[i]);
+			std::cout << (char)std::toupper(s[i]);
 	}
 }
 
 int main(int ac, char **argv)
 {
 	for (int i = 1; i < ac; i++) {
-		PrintInUpper(argv[i]);
+		PrintInUpper(std::string(argv[i]));
 	}
 }

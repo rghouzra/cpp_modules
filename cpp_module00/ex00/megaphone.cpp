@@ -3,10 +3,8 @@
 
 void
 PrintInUpper(const std::string s) {
-	if(s) {
 		for (size_t i = 0; s[i]; i++)
 			std::cout << (char)std::toupper(s[i]);
-	}
 }
 
 int main(int ac, char **argv)

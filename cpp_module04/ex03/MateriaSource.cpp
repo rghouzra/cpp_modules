@@ -23,8 +23,6 @@ MateriaSource::MateriaSource(MateriaSource const &obj)
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj){
 		for(int i = 0; i < 4; i++){
-			if(slots[i])
-				delete slots[i];
 			AMateria *p = obj.getSlotAtIndex(i);
 			if(p)
 			{

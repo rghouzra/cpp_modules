@@ -12,6 +12,12 @@ void check(){
 
 int main2()
 {	
+	{
+		MateriaSource a;
+		MateriaSource b(a);
+		
+	}
+	return 0;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

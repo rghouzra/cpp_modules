@@ -13,7 +13,6 @@ Bureaucrat::Bureaucrat(int16_t grade):name("reda")
 {
 	// std::cout << "Bureaucrat : Paramterized Constructor Called" << std::endl;
 	if(grade < 1){
-
 		throw Bureaucrat::GradeException("radeTooHighException");
 	}
 	else if(grade > 150){

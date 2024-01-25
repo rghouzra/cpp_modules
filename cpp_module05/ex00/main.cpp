@@ -5,14 +5,24 @@
 #include <iostream>
 
 
+void test(int16_t a){
+
+	Bureaucrat bur;
+	try{
+		bur.setGrade(a);
+		std::cout << bur << '\n';
+		bur.incrementGrade();
+		std::cout << bur << '\n';
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << '\n';
+	}
+}
+
 
 int main(){
-	Bureaucrat a;
-	try {
-		a.setGrade(0);
-		std::cout << a.getGrade() << '\n';
-	}
-	catch (std::exception &e){
-		std::cout << e.what();
-	}
+	test(0);
+	test(150);
+	test(151);
+	test(1);
 }

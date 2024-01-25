@@ -6,10 +6,12 @@
 
 #include <iostream>
 
-
+#define GRADE_TO_LOW "GradeTooLowException"
+#define GRADE_TO_HIGH "GradeTooHighException"
 
 class Bureaucrat
 {
+
 public:
     Bureaucrat();
 	Bureaucrat(int16_t grade);
@@ -18,20 +20,28 @@ public:
     Bureaucrat& operator=(const Bureaucrat& obj);
 	/*getters*/
 	int16_t getGrade() const;
-	const std::string &getName();
+	const std::string &getName() const;
 	/*setters*/
 	void setGrade(int16_t grade);
-	//inner class
-class GradeException: public std::exception{
-private:
-	std::string exception;
-public:
-	GradeException(std::string _exception);
-	~GradeException() throw();
-	const char *what() const throw();
-};
+	//inner exception class
+	void incrementGrade();
+	void decrementGrade();
+	class GradeException: public std::exception{
+	
+		private:
+			std::string exception;
+	
+		public:
+			GradeException(std::string _exception);
+			~GradeException() throw();
+			const char *what() const throw();
+	};
+
 private:
 	const std::string name;
 	int16_t grade;
 };
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
+
 #endif /*Bureaucrat_HPP*/

@@ -91,8 +91,8 @@ const char *Bureaucrat::GradeException::what() const throw() {
 Bureaucrat::GradeException::GradeException(std::string _exception) {
 	exception = _exception;
 }
-
+//overload ostream
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj){
-	os << obj.getName() <<", bureaucrat grade " << obj.getGrade();
+	os << obj.getName() <<" , bureaucrat grade " << obj.getGrade();
 	return os;
 }

@@ -48,7 +48,10 @@ Form& Form::operator=(const Form& obj)
     }
     return (*this);
 }
-
+//setter
+void Form::setSigned(bool _bool){
+    _signed  = _bool;
+}
 
 //getters
 int16_t Form::GetRequiredGradeSign() const{
@@ -61,6 +64,7 @@ int16_t Form::GetRequiredGradeExec() const{
 bool Form::getSigned()const{
     return _signed;
 }
+
 const std::string &Form::getName()const{
     return name;
 }
@@ -78,7 +82,12 @@ Form::GradeException::GradeException(std::string _exception) {
 }
 //impl
 void Form::beSigned(const Bureaucrat &b){
-    
+    if(b.getGrade() <= this->GetRequiredGradeSign())
+    {
+        this->setSigned(true);
+        return ;
+    }
+    throw GradeException(GRADE_TO_LOW);
 }
 
 //overload out op

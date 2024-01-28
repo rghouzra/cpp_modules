@@ -67,6 +67,16 @@ void Bureaucrat::decrementGrade(){
 	grade ++;
 }
 
+
+void Bureaucrat::signForm(const Form &form) const{
+	if (form.getSigned()){	
+		std::cout << this->getName() << " signed " << form.getName() << '\n';
+	}
+	else {
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because grade to low";
+	}
+}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
     // std::cout << "Copy Assignment Operator Called" << std::endl;

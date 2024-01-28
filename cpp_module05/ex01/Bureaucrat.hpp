@@ -6,6 +6,8 @@
 
 #include <iostream>
 
+#include "Form.hpp"
+
 #define GRADE_TO_LOW "GradeTooLowException"
 #define GRADE_TO_HIGH "GradeTooHighException"
 
@@ -28,8 +30,10 @@ public:
 	void setGrade(int16_t grade);
 	/*impl*/
 	void incrementGrade();
+	
 	void decrementGrade();
 
+	void signForm(const Form &form) const;
 	//inner exception class
 	class GradeException: public std::exception{
 	

@@ -4,7 +4,6 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-
 void test(int16_t a){
 
 	Bureaucrat bur;

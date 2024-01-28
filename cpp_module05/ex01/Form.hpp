@@ -7,6 +7,7 @@
 #include <iostream>
 #include <stdbool.h>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 class Form
@@ -17,6 +18,8 @@ public:
     Form(const Form& obj);
     ~Form();
     Form& operator=(const Form& obj);
+//setters
+    void setSigned(bool _bool);
 //getters
     
     int16_t GetRequiredGradeExec() const;

@@ -5,8 +5,8 @@ NAME = Bureaucrat
 FLAGS = -Wall -Wextra -Werror
 CC = c++
 STD = -std=c++98
-SRC = Bureaucrat.cpp main.cpp Form.cpp
-INC = *.hpp
+SRC = $(wildcard *.cpp)
+INC = $(wildcard *.hpp)
 OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 $(NAME): $(OBJ)

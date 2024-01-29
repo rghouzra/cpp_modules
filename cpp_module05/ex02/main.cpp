@@ -2,14 +2,11 @@
 // Created by reda ghouzraf on Wed Jan 24 02:54:08 2024
 //
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 void test(int16_t a){
-	Form f(10, 10);
-	Bureaucrat b(a);
-	f.beSigned(b);
-	b.signForm(f);
+	(void)a;
 }
 
 

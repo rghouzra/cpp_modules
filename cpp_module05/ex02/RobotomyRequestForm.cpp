@@ -30,3 +30,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     }
     return (*this);
 }
+
+void RobotomyRequestForm::execute(Bureaucrat const & executor)const{
+    (void)executor;
+}

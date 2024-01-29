@@ -1,24 +1,24 @@
 //
 // Created by reda ghouzraf on Thu Jan 25 13:49:34 2024
 //
-#ifndef Form_HPP
-#define Form_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include <iostream>
 #include <stdbool.h>
-class Form;
+class AForm;
 #include "Bureaucrat.hpp"
 
 
 
-class Form
+class AForm
 {
 public:
-    Form();
-    Form(int16_t _required_grade_exec, int16_t required_grade_sign);
-    Form(const Form& obj);
-    ~Form();
-    Form& operator=(const Form& obj);
+    AForm();
+    AForm(int16_t _required_grade_exec, int16_t required_grade_sign);
+    AForm(const AForm& obj);
+    ~AForm();
+    AForm& operator=(const AForm& obj);
 //setters
     void setSigned(bool _bool);
 //getters
@@ -28,13 +28,13 @@ public:
     bool getSigned()const;
     const std::string &getName()const;
 // impl
+    virtual void execute(Bureaucrat const & executor) const = 0;
     void beSigned(const Bureaucrat &b);
 private:
     const std::string name;
     bool _signed;
     const int16_t required_grade_exec;
     const int16_t required_grade_sign;
-
     //inner class 
     class GradeException: public std::exception{
 		private:
@@ -47,6 +47,6 @@ private:
 	};
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &form);
+std::ostream &operator<<(std::ostream &os, const AForm &AForm);
 
-#endif /*Form_HPP*/
+#endif /*AForm_HPP*/

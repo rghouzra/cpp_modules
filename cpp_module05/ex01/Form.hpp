@@ -47,6 +47,6 @@ private:
 	};
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &form);
+std::ostream &operator<<(std::ostream &os, const Form &Form);
 
 #endif /*Form_HPP*/

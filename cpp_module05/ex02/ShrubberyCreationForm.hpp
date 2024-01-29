@@ -5,16 +5,19 @@
 #define ShrubberyCreationForm_HPP
 
 #include <iostream>
-
-
+#include "Form.hpp"
+#define SIGN 145
+#define EXEC 137
 class ShrubberyCreationForm
 {
 public:
     ShrubberyCreationForm();
+    ShrubberyCreationForm(std::string _target);
     ShrubberyCreationForm(const ShrubberyCreationForm& obj);
     ~ShrubberyCreationForm();
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
-
+    void execute(Bureaucrat const & executor) const;
 private:
+    std::string target;
 };
 #endif /*ShrubberyCreationForm_HPP*/

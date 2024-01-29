@@ -93,8 +93,8 @@ void Form::beSigned(const Bureaucrat &b){
 //overload out op
 
 std::ostream &operator<<(std::ostream &os, const Form &obj){
-    os << obj.getName() <<" , form required grade to sign " << obj.GetRequiredGradeSign()\
-    << " , form required grade to exec " << obj.GetRequiredGradeExec()\
+    os << obj.getName() <<" , Form required grade to sign " << obj.GetRequiredGradeSign()\
+    << " , Form required grade to exec " << obj.GetRequiredGradeExec()\
     <<" signed: " <<obj.getSigned() <<'\n';
     return os;
 }

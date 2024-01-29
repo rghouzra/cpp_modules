@@ -7,7 +7,7 @@
 #include <iostream>
 
 class Bureaucrat;
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define GRADE_TO_LOW "GradeTooLowException"
 #define GRADE_TO_HIGH "GradeTooHighException"
@@ -35,7 +35,7 @@ public:
 	
 	void decrementGrade();
 
-	void signForm(const Form &form) const;
+	void signForm(const AForm &AForm) const;
 	//inner exception class
 	class GradeException: public std::exception{
 	

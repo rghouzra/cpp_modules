@@ -68,12 +68,12 @@ void Bureaucrat::decrementGrade(){
 }
 
 
-void Bureaucrat::signForm(const Form &form) const{
-	if (form.getSigned()){	
-		std::cout << this->getName() << " signed " << form.getName() << '\n';
+void Bureaucrat::signForm(const Form &Form) const{
+	if (Form.getSigned()){	
+		std::cout << this->getName() << " signed " << Form.getName() << '\n';
 	}
 	else {
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because grade to low";
+		std::cout << this->getName() << " couldn't sign " << Form.getName() << " because grade to low";
 	}
 }
 

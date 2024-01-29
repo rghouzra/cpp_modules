@@ -5,16 +5,18 @@
 #define PresidentialPardonForm_HPP
 
 #include <iostream>
+#include  "AForm.hpp"
+#define SIGN 25
+#define EXEC 5
 
-
-class PresidentialPardonForm
+class PresidentialPardonForm : AForm
 {
 public:
     PresidentialPardonForm();
     PresidentialPardonForm(const PresidentialPardonForm& obj);
     ~PresidentialPardonForm();
     PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
-
+    void execute(Bureaucrat const & executor) const;
 private:
 };
 #endif /*PresidentialPardonForm_HPP*/

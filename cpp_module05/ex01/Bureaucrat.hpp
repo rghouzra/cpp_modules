@@ -35,7 +35,7 @@ public:
 	
 	void decrementGrade();
 
-	void signForm(const Form &form) const;
+	void signForm(const Form &Form) const;
 	//inner exception class
 	class GradeException: public std::exception{
 	

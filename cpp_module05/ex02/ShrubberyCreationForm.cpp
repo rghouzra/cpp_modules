@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-s
+
 
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{

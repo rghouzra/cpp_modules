@@ -81,6 +81,8 @@ AForm::GradeException::GradeException(std::string _exception) {
 	exception = _exception;
 }
 //impl
+
+
 void AForm::beSigned(const Bureaucrat &b){
     (void)b;
     if(b.getGrade() <= this->GetRequiredGradeSign())

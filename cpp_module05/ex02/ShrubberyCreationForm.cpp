@@ -13,14 +13,24 @@ void CreateTreeAsciiArt(){
     // std::cout << "  *****  " << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-    
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target){
+    target = _target;
 }
+
+// ShrubberyCreationForm::ShrubberyCreationForm()
+// {
+    
+// }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
    
+}
+
+
+const std::string &ShrubberyCreationForm::getTarget() const{
+    return target;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj)
@@ -32,16 +42,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj)
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& obj)
 {
-  
-    if (this != &obj)
-    {
-   
-    
+    if (this != &obj){
+        this->target = obj.getTarget();
     }
     return (*this);
 }
 
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    
+    (void)executor;
 }

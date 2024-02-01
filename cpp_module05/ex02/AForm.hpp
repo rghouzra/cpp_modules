@@ -14,33 +14,35 @@ class AForm;
 class AForm
 {
 public:
+//orthodox cannonical form
     AForm();
     AForm(int16_t _required_grade_exec, int16_t required_grade_sign);
     AForm(const AForm& obj);
     ~AForm();
     AForm& operator=(const AForm& obj);
+
 //setters
     void setSigned(bool _bool);
-//getters
-    
+
+//getters    
     int16_t GetRequiredGradeExec() const;
     int16_t GetRequiredGradeSign() const;
     bool getSigned()const;
     const std::string &getName()const;
+
 // impl
  
     virtual void execute(Bureaucrat const & executor) const = 0;
  
     void beSigned(const Bureaucrat &b);
+
 private:
     const std::string name;
     bool _signed;
     const int16_t required_grade_exec;
     const int16_t required_grade_sign;
+
     //inner class 
-
-
-/*-------------------------*/
     class GradeException: public std::exception{
 		private:
 			std::string exception;
@@ -51,7 +53,6 @@ private:
 			const char *what() const throw();
 	};
 /*-------------------------*/
-
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);

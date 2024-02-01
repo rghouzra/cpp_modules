@@ -3,37 +3,45 @@
 //
 #include "ShrubberyCreationForm.hpp"
 
+void CreateTreeAsciiArt(){
+    // std::ostream file()
+    // std::cout << "  *****  " << std::endl;
+    // std::cout << " *     * " << std::endl;
+    // std::cout << "*  O O  *" << std::endl;
+    // std::cout << "*   ∆   *" << std::endl;
+    // std::cout << " *     * " << std::endl;
+    // std::cout << "  *****  " << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm : Default Constructor Called" << std::endl;
+    
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm : Destructor Called" << std::endl;
+   
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj)
 {
-    std::cout << "Copy Constructor Called" << std::endl;
+   
     if (this != &obj)
         *this = obj;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& obj)
 {
-    std::cout << "Copy Assignment Operator Called" << std::endl;
+  
     if (this != &obj)
     {
-        // this->attributes = obj.attributes;
-        // ...
+   
+    
     }
     return (*this);
 }
 
 
-
-
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    (void)executor;
+    
 }

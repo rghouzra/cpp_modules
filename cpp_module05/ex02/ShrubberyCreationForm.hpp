@@ -5,10 +5,10 @@
 #define ShrubberyCreationForm_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 #define SIGN 145
 #define EXEC 137
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
 public:
     ShrubberyCreationForm();

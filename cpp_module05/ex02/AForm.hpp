@@ -28,7 +28,9 @@ public:
     bool getSigned()const;
     const std::string &getName()const;
 // impl
+ 
     virtual void execute(Bureaucrat const & executor) const = 0;
+ 
     void beSigned(const Bureaucrat &b);
 private:
     const std::string name;
@@ -36,6 +38,9 @@ private:
     const int16_t required_grade_exec;
     const int16_t required_grade_sign;
     //inner class 
+
+
+/*-------------------------*/
     class GradeException: public std::exception{
 		private:
 			std::string exception;
@@ -45,6 +50,8 @@ private:
 			~GradeException() throw();
 			const char *what() const throw();
 	};
+/*-------------------------*/
+
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);

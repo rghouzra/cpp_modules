@@ -17,6 +17,7 @@ class AForm
 public:
 //orthodox cannonical form
     AForm();
+    AForm(const std::string &_name, int16_t _required_grade_exec, int16_t required_grade_sign);
     AForm(int16_t _required_grade_exec, int16_t required_grade_sign);
     AForm(const AForm& obj);
     ~AForm();
@@ -33,7 +34,7 @@ public:
 
 // impl
  
-    virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual bool execute(Bureaucrat const & executor) const = 0;
  
     void beSigned(const Bureaucrat &b);
 

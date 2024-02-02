@@ -3,10 +3,21 @@
 //
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
 void test(int16_t a){
-	
+	ShrubberyCreationForm derived("form");
+	AForm &base = derived;
+	Bureaucrat bur(a);
+
+	// bur.executeForm(base);
+	base.beSigned(bur);
+	if(base.execute(bur))
+		std::cout << "executed\n";
+	// AForm *ptr = new  Prs
 }
 
 

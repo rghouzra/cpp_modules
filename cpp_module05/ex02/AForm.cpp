@@ -4,7 +4,7 @@
 #include "AForm.hpp"
 
 
-AForm::AForm():required_grade_exec(10),required_grade_sign(10)
+AForm::AForm():name("base"),required_grade_exec(10),required_grade_sign(10)
 {
     _signed = false;
     // std::cout << "AForm : Default Constructor Called" << std::endl;
@@ -12,6 +12,21 @@ AForm::AForm():required_grade_exec(10),required_grade_sign(10)
 
 
 AForm::AForm(int16_t _required_grade_exec, int16_t _required_grade_sign):\
+    required_grade_exec(_required_grade_exec),\
+    required_grade_sign(_required_grade_sign)
+{
+    _signed = false;
+
+    if(_required_grade_exec > 150 || _required_grade_sign > 150)
+        throw GradeException(GRADE_TO_LOW);
+
+    else if(_required_grade_exec < 1 || _required_grade_sign < 1)
+        throw GradeException(GRADE_TO_HIGH);
+
+    // std::cout << "AForm : Default Constructor Called" << std::endl;
+}
+AForm::AForm(const std::string &_name,int16_t _required_grade_exec, int16_t _required_grade_sign):\
+    name(_name),\
     required_grade_exec(_required_grade_exec),\
     required_grade_sign(_required_grade_sign)
 {

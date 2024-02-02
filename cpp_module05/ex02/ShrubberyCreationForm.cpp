@@ -3,13 +3,15 @@
 //
 #include "ShrubberyCreationForm.hpp"
 
+#define SIGN 145
+#define EXEC 137
 
 ShrubberyCreationForm::ShrubberyCreationForm(){
     target = "undefined";
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):AForm(EXEC, SIGN){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):AForm("ShrubberyCreationForm",EXEC, SIGN){
     target = _target;
 }
 
@@ -54,7 +56,10 @@ static void exec(std::string target){
 }
 
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec())
+bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
+    if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec()){
         exec(this->target);
+        return true;
+    }
+    return false;
 }

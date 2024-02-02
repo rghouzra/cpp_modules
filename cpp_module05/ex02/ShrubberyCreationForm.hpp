@@ -6,8 +6,7 @@
 
 #include <iostream>
 #include "AForm.hpp"
-#define SIGN 145
-#define EXEC 137
+
 class ShrubberyCreationForm : public AForm
 {
 public:
@@ -16,7 +15,7 @@ public:
     ShrubberyCreationForm(const ShrubberyCreationForm& obj);
     ~ShrubberyCreationForm();
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
-    void execute(Bureaucrat const & executor) const;
+    bool execute(Bureaucrat const & executor) const;
     const std::string &getTarget() const;
 private:
     std::string target;

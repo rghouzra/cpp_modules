@@ -3,11 +3,14 @@
 //
 #include "PresidentialPardonForm.hpp"
 
+#define SIGN 25
+#define EXEC 5
+
 PresidentialPardonForm::PresidentialPardonForm()
 {
 
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm(EXEC, SIGN)
+PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm("PresidentialPardonForm",EXEC, SIGN)
 {
     target = _target;
 }
@@ -38,7 +41,10 @@ static void exec(const std::string &target){
     std::cout << target + " has been pardoned by Zaphod Beeblebrox\n";
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-     if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec())
+bool PresidentialPardonForm::execute(Bureaucrat const & executor) const{
+     if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec()){
         exec(this->target);
+        return true;
+     }
+    return false;
 }

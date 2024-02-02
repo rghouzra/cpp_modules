@@ -77,6 +77,18 @@ void Bureaucrat::signForm(const AForm &AForm) const{
 	}
 }
 
+
+void  Bureaucrat::executeForm(AForm const & form)
+{
+	std::cout << form.GetRequiredGradeExec() << '\t' <<form.GetRequiredGradeSign()<<'\n';
+	if(form.GetRequiredGradeExec() >= grade && form.GetRequiredGradeSign() >= grade)
+		std::cout << this->getName() << " executed " << form.getName() << '\n';
+	else
+		std::cout << "cant execute\n";
+
+}
+
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
     // std::cout << "Copy Assignment Operator Called" << std::endl;

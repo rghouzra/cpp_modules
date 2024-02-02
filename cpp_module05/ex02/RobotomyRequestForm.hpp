@@ -6,8 +6,7 @@
 
 #include <iostream>
 #include "AForm.hpp"
-#define SIGN 72
-#define EXEC 45
+
 class RobotomyRequestForm: public AForm
 {
 public:
@@ -16,7 +15,7 @@ public:
     RobotomyRequestForm(const RobotomyRequestForm& obj);
     ~RobotomyRequestForm();
     RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
-    void execute(Bureaucrat const & executor) const;
+    bool execute(Bureaucrat const & executor) const;
 private:
     std::string target;
 };

@@ -6,8 +6,7 @@
 
 #include <iostream>
 #include  "AForm.hpp"
-#define SIGN 25
-#define EXEC 5
+
 
 class PresidentialPardonForm : public AForm
 {
@@ -17,7 +16,7 @@ public:
     PresidentialPardonForm(const PresidentialPardonForm& obj);
     ~PresidentialPardonForm();
     PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
-    void execute(Bureaucrat const & executor) const;
+    bool execute(Bureaucrat const & executor) const;
 private:
     std::string target;
 };

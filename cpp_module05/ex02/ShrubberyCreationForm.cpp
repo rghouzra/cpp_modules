@@ -3,25 +3,17 @@
 //
 #include "ShrubberyCreationForm.hpp"
 
-void CreateTreeAsciiArt(){
-    // std::ostream file()
-    // std::cout << "  *****  " << std::endl;
-    // std::cout << " *     * " << std::endl;
-    // std::cout << "*  O O  *" << std::endl;
-    // std::cout << "*   ∆   *" << std::endl;
-    // std::cout << " *     * " << std::endl;
-    // std::cout << "  *****  " << std::endl;
+
+ShrubberyCreationForm::ShrubberyCreationForm(){
+    target = "undefined";
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):AForm(EXEC, SIGN){
     target = _target;
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm()
-// {
-    
-// }
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
@@ -35,7 +27,7 @@ const std::string &ShrubberyCreationForm::getTarget() const{
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj)
 {
-   
+
     if (this != &obj)
         *this = obj;
 }
@@ -48,7 +40,21 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
+static void exec(std::string target){
+    std::ofstream file;
+
+    file.open(target + "_shrubbery");
+    if(!file.good()) return ;
+    file << "  *****  " << std::endl;
+    file << " *     * " << std::endl;
+    file << "*  O O  *" << std::endl;
+    file << "*   ∆   *" << std::endl;
+    file << " *     * " << std::endl;
+    file << "  *****  " << std::endl;
+}
+
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-    (void)executor;
+    if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec())
+        exec(this->target);
 }

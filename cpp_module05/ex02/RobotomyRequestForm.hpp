@@ -8,14 +8,16 @@
 #include "AForm.hpp"
 #define SIGN 72
 #define EXEC 45
-class RobotomyRequestForm
+class RobotomyRequestForm: public AForm
 {
 public:
     RobotomyRequestForm();
+    RobotomyRequestForm(const std::string &_target);
     RobotomyRequestForm(const RobotomyRequestForm& obj);
     ~RobotomyRequestForm();
     RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);
     void execute(Bureaucrat const & executor) const;
 private:
+    std::string target;
 };
 #endif /*RobotomyRequestForm_HPP*/

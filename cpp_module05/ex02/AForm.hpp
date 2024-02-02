@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <stdbool.h>
+#include <fstream>
 class AForm;
 #include "Bureaucrat.hpp"
 

@@ -7,6 +7,10 @@ PresidentialPardonForm::PresidentialPardonForm()
 {
 
 }
+PresidentialPardonForm::PresidentialPardonForm(std::string _target): AForm(EXEC, SIGN)
+{
+    target = _target;
+}
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
@@ -30,7 +34,11 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return (*this);
 }
 
+static void exec(const std::string &target){
+    std::cout << target + " has been pardoned by Zaphod Beeblebrox\n";
+}
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-    (void)executor;
+     if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec())
+        exec(this->target);
 }

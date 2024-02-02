@@ -24,7 +24,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -rf $(OBJ)
-
+	rm -fr $(wildcard *_shrubbery)
 fclean: clean
 	rm -rf $(NAME)
 

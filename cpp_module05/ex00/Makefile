@@ -2,7 +2,7 @@
 # Created by reda ghouzraf on Wed Jan 24 02:54:08 2024
 #
 NAME = Bureaucrat
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 CC = c++
 STD = -std=c++98
 SRC = Bureaucrat.cpp main.cpp

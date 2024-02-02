@@ -6,7 +6,7 @@
 #include <iostream>
 
 void test(int16_t a){
-	(void)a;
+	
 }
 
 
@@ -17,7 +17,7 @@ int main(){
 		std::cout << "\n----\n";
 		test(9);
 		std::cout << "\n----\n";
-		test(150);
+		test(151);
 		std::cout << "\n----\n";
 	}
 	catch(std::exception &e){

@@ -3,9 +3,13 @@
 //
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm()
-{
-    std::cout << "RobotomyRequestForm : Default Constructor Called" << std::endl;
+// RobotomyRequestForm::RobotomyRequestForm()
+// {
+//     std::cout << "RobotomyRequestForm : Default Constructor Called" << std::endl;
+// }
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string &_target): AForm(EXEC, SIGN){
+    target = _target;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
@@ -31,6 +35,17 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     return (*this);
 }
 
+static void exec(const std::string &target){
+    static int i;
+    std::cout << "driling noises ";
+    if(i & 1)
+        std::cout << target + " has been robotimzed\n";
+    else
+        std::cout << target + " robotimization failed\n";
+    i++;
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const{
-    (void)executor;
+     if(this->getSigned() && executor.getGrade() <= this->GetRequiredGradeExec())
+        exec(this->target);
 }

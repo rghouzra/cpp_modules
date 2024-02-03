@@ -20,7 +20,7 @@ public:
     AForm(const std::string &_name, int16_t _required_grade_exec, int16_t required_grade_sign);
     AForm(int16_t _required_grade_exec, int16_t required_grade_sign);
     AForm(const AForm& obj);
-    ~AForm();
+    virtual ~AForm();
     AForm& operator=(const AForm& obj);
 
 //setters

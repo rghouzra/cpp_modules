@@ -6,6 +6,9 @@
 
 #include <iostream>
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 
 class Intern

@@ -7,7 +7,7 @@
 #define EXEC 45
 RobotomyRequestForm::RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm : Default Constructor Called" << std::endl;
+    // std::cout << "RobotomyRequestForm : Default Constructor Called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &_target): AForm("RobotomyRequestForm",EXEC, SIGN){
@@ -16,19 +16,19 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &_target): AForm("Rob
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm : Destructor Called" << std::endl;
+    // std::cout << "RobotomyRequestForm : Destructor Called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj)
 {
-    std::cout << "Copy Constructor Called" << std::endl;
+    // std::cout << "Copy Constructor Called" << std::endl;
     if (this != &obj)
         *this = obj;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj)
 {
-    std::cout << "Copy Assignment Operator Called" << std::endl;
+    // std::cout << "Copy Assignment Operator Called" << std::endl;
     if (this != &obj)
     {
         this->target = obj.target;

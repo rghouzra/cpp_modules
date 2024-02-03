@@ -32,7 +32,7 @@ int main(){
 		std::cout << "\n----\n";
 	}
 	catch(std::exception &e){
-		std::cerr << e.what();	
+		std::cerr << e.what() << '\n';	
 	}
 	// test(151);
 	// test(1);

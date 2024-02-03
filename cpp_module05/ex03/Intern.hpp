@@ -5,6 +5,7 @@
 #define Intern_HPP
 
 #include <iostream>
+#include "AForm.hpp"
 
 
 class Intern
@@ -14,7 +15,7 @@ public:
     Intern(const Intern& obj);
     ~Intern();
     Intern& operator=(const Intern& obj);
-
+    AForm *makeForm(const std::string &FormName, const std::string &target);
 private:
 };
 #endif /*Intern_HPP*/

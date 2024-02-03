@@ -10,23 +10,25 @@ Intern::Intern()
 
 Intern::~Intern()
 {
-    std::cout << "Intern : Destructor Called" << std::endl;
+    
 }
 
 Intern::Intern(const Intern& obj)
 {
-    std::cout << "Copy Constructor Called" << std::endl;
     if (this != &obj)
         *this = obj;
 }
 
 Intern& Intern::operator=(const Intern& obj)
-{
-    std::cout << "Copy Assignment Operator Called" << std::endl;
-    if (this != &obj)
+{   if (this != &obj)
     {
         // this->attributes = obj.attributes;
         // ...
     }
     return (*this);
+}
+
+
+AForm *Intern::makeForm(const std::string &FormName, const std::string &target){
+    return nullptr;
 }

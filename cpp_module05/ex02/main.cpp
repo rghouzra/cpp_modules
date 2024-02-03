@@ -12,7 +12,7 @@ void test(int16_t a){
 	ShrubberyCreationForm derived("form");
 	AForm &base = derived;
 	Bureaucrat bur(a);
-
+	std::nullptr_t a;
 	// bur.executeForm(base);
 	base.beSigned(bur);
 	if(base.execute(bur))

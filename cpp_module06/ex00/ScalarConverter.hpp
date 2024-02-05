@@ -10,11 +10,11 @@
 class ScalarConverter
 {
 public:
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter& obj);
     ~ScalarConverter();
     ScalarConverter& operator=(const ScalarConverter& obj);
     static void convert(const std::string &string); 
 private:
+    ScalarConverter();
+    ScalarConverter(const ScalarConverter& obj);
 };
 #endif /*ScalarConverter_HPP*/

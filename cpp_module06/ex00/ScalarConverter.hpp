@@ -6,6 +6,16 @@
 
 #include <iostream>
 
+#define STRING_EQUALS(str, arr) (str.compare(arr) == 0)
+
+#define IS_SPECIAL_FLOAT_STRING(str) \
+    ( \
+        STRING_EQUALS(str, "-inf") || \
+        STRING_EQUALS(str, "+inf") || \
+        STRING_EQUALS(str, "-inff") || \
+        STRING_EQUALS(str, "+inff") || \
+        STRING_EQUALS(str, "nan") \
+    )
 
 class ScalarConverter
 {

@@ -32,7 +32,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj)
 }
 
 void char_format(const std::string &string){
-
+    
 }
 
 void ScalarConverter::convert(const std::string &string){

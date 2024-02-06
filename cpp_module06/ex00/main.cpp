@@ -3,8 +3,10 @@
 //
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int ac,char **av)
 {
     // Your Code
+    (void)ac;
+    ScalarConverter::convert(av[1]);
     return 0;
 }

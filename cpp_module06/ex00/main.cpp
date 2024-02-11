@@ -6,7 +6,7 @@
 int main(int ac,char **av)
 {
     // Your Code
-    (void)ac;
+    if(ac == 1) return 1;
     ScalarConverter::convert(av[1]);
     return 0;
 }

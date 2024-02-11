@@ -46,6 +46,8 @@ void getType(const std::string &str, t_type &type){
         if(chars == 1){
             type = CHARACTER;
         }
+        else if(Digits == (int)str.size())
+            type = INTEGER;
         else if(floatpoint == 1 && floathelper > 1 ){
             type = (floatspecifiers == 1 ? FLOAT_NUMBER : (floatspecifiers == 0 ? DOUBLE_NUMBER : UNKNOWN));
             if(IS_SPECIAL_DOUBLE_STRING(str))
@@ -63,14 +65,14 @@ void char_format(char arg)
 {
     std::cout << "char format :\t";
     if(isprint(arg))
-        std::cout<< arg;
+        std::cout<< "\'" << arg << "\'";
     else
         std::cout<< "impossible";
     std::cout << "\n";
 }
 
 void integer_format(int arg){
-     std::cout << "integer format :\t";
+     std::cout << "integ format :\t";
     std::cout << arg;
     std::cout << "\n";
 }
@@ -95,8 +97,15 @@ void output_in_different_formats(t_type type, const std::string &s){
         float_format(static_cast<float>(formats.char_format));
         double_format(static_cast<double>(formats.char_format));
     }
+
     else if(type == INTEGER){
         formats.int_format = std::atoi(s.c_str());
+    
+        if(formats.int_format >= INT8_MIN && formats.int_format <= INT8_MAX)
+            char_format(static_cast<char>(formats.int_format));
+        else
+            std::cout << "out of range\n";
+        integer_format(static_cast<int>(formats.int_format));
 
     }
 }

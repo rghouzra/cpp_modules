@@ -5,12 +5,13 @@ NAME = ScalarConverter
 FLAGS = -Wall -Wextra -Werror
 CC = c++
 STD = -std=c++98
+ASAN = -fsanitize=signed-integer-overflow,address,undefined
 SRC = ScalarConverter.cpp main.cpp
 INC = ScalarConverter.hpp
 OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(STD) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(ASAN) $(STD) $(OBJ) -o $(NAME)
 %.o: %.cpp $(INC)
 	$(CC) $(FLAGS) -c $< -o $@
 clean:

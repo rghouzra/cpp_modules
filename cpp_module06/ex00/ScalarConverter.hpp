@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <climits>
-
+#include <iomanip>
 #define STRING_EQUALS(str, arr) (str.compare(arr) == 0)
 
 #define IS_SPECIAL_FLOAT_STRING(str) \

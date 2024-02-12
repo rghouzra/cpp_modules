@@ -35,12 +35,11 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj)
 void getType(const std::string &str, t_type &type){
     if(str.size()){
         int  Digits = 0, chars = 0, floatpoint = 0, floatspecifiers = 0;
-        int floathelper = 0;
+
         for(size_t i = 0; i < str.size(); i++){
              Digits += (isdigit(str[i]));
-             floathelper += (isdigit(str[i]));
-             floatpoint += (floathelper > 0 && (floathelper = 0));
-             floatspecifiers += (((Digits != 0)  + (floatpoint == 1) + (str[i] == 'f')) == 3);
+             floatpoint += ((str[i] == '.') && (Digits != 0));
+             floatspecifiers += (((floatpoint == 1) && (str[i] == 'f')));
              chars ++;
         }
         if(chars == 1){
@@ -48,13 +47,13 @@ void getType(const std::string &str, t_type &type){
         }
         else if(Digits == (int)str.size())
             type = INTEGER;
-        else if(floatpoint == 1 && floathelper > 1 ){
+        else if(floatpoint == 1){
             type = (floatspecifiers == 1 ? FLOAT_NUMBER : (floatspecifiers == 0 ? DOUBLE_NUMBER : UNKNOWN));
-            if(IS_SPECIAL_DOUBLE_STRING(str))
-                type = DOUBLE_NUMBER;
-            else if(IS_SPECIAL_FLOAT_STRING(str))
-                type = FLOAT_NUMBER;
         }
+        else if(IS_SPECIAL_DOUBLE_STRING(str))
+            type = DOUBLE_NUMBER;
+        else if(IS_SPECIAL_FLOAT_STRING(str))
+            type = FLOAT_NUMBER;
         else
             type = UNKNOWN;
     }
@@ -76,11 +75,14 @@ void integer_format(int arg){
     std::cout << arg;
     std::cout << "\n";
 }
+
 void float_format(float arg){
      std::cout << "float format :\t";
     std::cout << arg;
-    std::cout << "\n";
+    std::cout << 'f';
+    std::cout  << '\n';
 }
+
 void double_format(double arg){
      std::cout << "double format :\t";
     std::cout << arg;
@@ -89,12 +91,17 @@ void double_format(double arg){
 
 void output_in_different_formats(t_type type, const std::string &s){
     t_formats formats;
+    int8_t isSpecialFloatingFormat = (IS_SPECIAL_DOUBLE_STRING(s) ? 2 : IS_SPECIAL_FLOAT_STRING(s) ? 1 : 0);
 
     if(type == CHARACTER){
         formats.char_format = s[0];
+
         char_format(formats.char_format);
+
         integer_format(static_cast<int>(formats.char_format));
+
         float_format(static_cast<float>(formats.char_format));
+
         double_format(static_cast<double>(formats.char_format));
     }
 
@@ -103,10 +110,54 @@ void output_in_different_formats(t_type type, const std::string &s){
     
         if(formats.int_format >= INT8_MIN && formats.int_format <= INT8_MAX)
             char_format(static_cast<char>(formats.int_format));
+       
         else
             std::cout << "out of range\n";
+       
         integer_format(static_cast<int>(formats.int_format));
+       
+        float_format(static_cast<float>(formats.int_format));
+       
+        double_format(static_cast<double>(formats.int_format));
+    }
+    else if(type == FLOAT_NUMBER){
+        formats.float_format = std::atof(s.c_str());
+      
+        if(formats.float_format >= INT8_MIN && formats.float_format <= INT8_MAX && !isSpecialFloatingFormat)
+            char_format(static_cast<char>(formats.float_format));
+        else
+            std::cout << "outofrange\n";
+    
+        if(!isSpecialFloatingFormat)
+            integer_format(static_cast<int>(formats.float_format));
+        else
+            std::cout << "outofrange\n";
 
+        if(isSpecialFloatingFormat <= 1)
+            float_format(formats.float_format);
+        else
+            std::cout << "outofrange\n";
+
+        double_format(static_cast<double>(formats.float_format));
+    }
+    else if(type == DOUBLE_NUMBER){
+        formats.double_format = std::atof(s.c_str());
+      
+        if(formats.double_format >= INT8_MIN && formats.double_format <= INT8_MAX && !isSpecialFloatingFormat)
+            char_format(static_cast<char>(formats.double_format));
+        else
+            std::cout << "outofrange\n";
+    
+        if(!isSpecialFloatingFormat)
+            integer_format(static_cast<int>(formats.double_format));
+        else
+            std::cout << "outofrange\n";
+
+        if(isSpecialFloatingFormat <= 1)
+            float_format(static_cast<double>(formats.double_format));
+        else
+            std::cout << "outofrange\n";
+        double_format(static_cast<double>(formats.double_format));
     }
 }
 

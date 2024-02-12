@@ -94,6 +94,7 @@ void output_in_different_formats(t_type type, const std::string &s){
     int8_t isSpecialFloatingFormat = (IS_SPECIAL_DOUBLE_STRING(s) ? 2 : IS_SPECIAL_FLOAT_STRING(s) ? 1 : 0);
 
     if(type == CHARACTER){
+        std::cout << "isCharacter\n";
         formats.char_format = s[0];
 
         char_format(formats.char_format);
@@ -106,6 +107,7 @@ void output_in_different_formats(t_type type, const std::string &s){
     }
 
     else if(type == INTEGER){
+        std::cout << "isInteger\n";
         formats.int_format = std::atoi(s.c_str());
     
         if(formats.int_format >= INT8_MIN && formats.int_format <= INT8_MAX)
@@ -121,6 +123,7 @@ void output_in_different_formats(t_type type, const std::string &s){
         double_format(static_cast<double>(formats.int_format));
     }
     else if(type == FLOAT_NUMBER){
+        std::cout << "isFloat\n";
         formats.float_format = std::atof(s.c_str());
       
         if(formats.float_format >= INT8_MIN && formats.float_format <= INT8_MAX && !isSpecialFloatingFormat)
@@ -141,6 +144,7 @@ void output_in_different_formats(t_type type, const std::string &s){
         double_format(static_cast<double>(formats.float_format));
     }
     else if(type == DOUBLE_NUMBER){
+        std::cout << "isDouble\n";
         formats.double_format = std::atof(s.c_str());
       
         if(formats.double_format >= INT8_MIN && formats.double_format <= INT8_MAX && !isSpecialFloatingFormat)
@@ -154,7 +158,7 @@ void output_in_different_formats(t_type type, const std::string &s){
             std::cout << "outofrange\n";
 
         if(isSpecialFloatingFormat <= 1)
-            float_format(static_cast<double>(formats.double_format));
+            float_format(static_cast<float>(formats.double_format));
         else
             std::cout << "outofrange\n";
         double_format(static_cast<double>(formats.double_format));

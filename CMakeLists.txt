@@ -1,0 +1,139 @@
+cmake_minimum_required(VERSION 3.26)
+project(cpp_modules)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(cpp_module00/ex01)
+include_directories(cpp_module01/ex00)
+include_directories(cpp_module01/ex01)
+include_directories(cpp_module01/ex03)
+include_directories(cpp_module01/ex04)
+include_directories(cpp_module01/ex05)
+include_directories(cpp_module01/ex06)
+include_directories(cpp_module02/ex00)
+include_directories(cpp_module02/ex01)
+include_directories(cpp_module02/ex02)
+include_directories(cpp_module03/ex00)
+include_directories(cpp_module03/ex01)
+include_directories(cpp_module03/ex02)
+include_directories(cpp_module04/ex00)
+include_directories(cpp_module04/ex01)
+include_directories(cpp_module04/ex02)
+include_directories(cpp_module04/ex03)
+include_directories(cpp_module05/ex00)
+
+add_executable(cpp_modules
+        cpp_module00/ex00/megaphone.cpp
+        cpp_module00/ex01/a.cpp
+        cpp_module00/ex01/contact.cpp
+        cpp_module00/ex01/Contact.hpp
+        cpp_module00/ex01/main.cpp
+        cpp_module00/ex01/PhoneBook.hpp
+        cpp_module00/ex01/PhoneBookUtils.cpp
+        cpp_module00/ex01/utils.cpp
+        cpp_module00/ex01/utils.hpp
+        cpp_module01/ex00/main.cpp
+        cpp_module01/ex00/newZombie.cpp
+        cpp_module01/ex00/randomChump.cpp
+        cpp_module01/ex00/Zombie.cpp
+        cpp_module01/ex00/Zombie.hpp
+        cpp_module01/ex01/main.cpp
+        cpp_module01/ex01/Zombie.cpp
+        cpp_module01/ex01/Zombie.hpp
+        cpp_module01/ex01/zombieHorde.cpp
+        cpp_module01/ex02/main.cpp
+        cpp_module01/ex03/HumanA.cpp
+        cpp_module01/ex03/HumanA.hpp
+        cpp_module01/ex03/HumanB.cpp
+        cpp_module01/ex03/HumanB.hpp
+        cpp_module01/ex03/main.cpp
+        cpp_module01/ex03/Weapon.cpp
+        cpp_module01/ex03/Weapon.hpp
+        cpp_module01/ex04/main.cpp
+        cpp_module01/ex04/UltimateSed.cpp
+        cpp_module01/ex04/UltimateSed.hpp
+        cpp_module01/ex05/Harl.cpp
+        cpp_module01/ex05/Harl.hpp
+        cpp_module01/ex05/main.cpp
+        cpp_module01/ex06/Harl.cpp
+        cpp_module01/ex06/Harl.hpp
+        cpp_module01/ex06/main.cpp
+        cpp_module02/ex00/Fixed.cpp
+        cpp_module02/ex00/Fixed.hpp
+        cpp_module02/ex00/main.cpp
+        cpp_module02/ex01/Fixed.cpp
+        cpp_module02/ex01/Fixed.hpp
+        cpp_module02/ex01/main.cpp
+        cpp_module02/ex02/Fixed.cpp
+        cpp_module02/ex02/Fixed.hpp
+        cpp_module02/ex02/main.cpp
+        cpp_module03/ex00/ClapTrap.cpp
+        cpp_module03/ex00/ClapTrap.hpp
+        cpp_module03/ex00/main.cpp
+        cpp_module03/ex01/ClapTrap.cpp
+        cpp_module03/ex01/ClapTrap.hpp
+        cpp_module03/ex01/main.cpp
+        cpp_module03/ex01/ScavTrap.cpp
+        cpp_module03/ex01/ScavTrap.hpp
+        cpp_module03/ex02/ClapTrap.cpp
+        cpp_module03/ex02/ClapTrap.hpp
+        cpp_module03/ex02/FragTrap.cpp
+        cpp_module03/ex02/FragTrap.hpp
+        cpp_module03/ex02/main.cpp
+        cpp_module03/ex02/ScavTrap.cpp
+        cpp_module03/ex02/ScavTrap.hpp
+        cpp_module04/ex00/Animal.cpp
+        cpp_module04/ex00/Animal.hpp
+        cpp_module04/ex00/Cat.cpp
+        cpp_module04/ex00/Cat.hpp
+        cpp_module04/ex00/Dog.cpp
+        cpp_module04/ex00/Dog.hpp
+        cpp_module04/ex00/main.cpp
+        cpp_module04/ex00/WrongAnimal.cpp
+        cpp_module04/ex00/WrongAnimal.hpp
+        cpp_module04/ex00/WrongCat.cpp
+        cpp_module04/ex00/WrongCat.hpp
+        cpp_module04/ex01/Animal.cpp
+        cpp_module04/ex01/Animal.hpp
+        cpp_module04/ex01/Brain.cpp
+        cpp_module04/ex01/Brain.hpp
+        cpp_module04/ex01/Cat.cpp
+        cpp_module04/ex01/Cat.hpp
+        cpp_module04/ex01/Dog.cpp
+        cpp_module04/ex01/Dog.hpp
+        cpp_module04/ex01/main.cpp
+        cpp_module04/ex01/WrongAnimal.cpp
+        cpp_module04/ex01/WrongAnimal.hpp
+        cpp_module04/ex01/WrongCat.cpp
+        cpp_module04/ex01/WrongCat.hpp
+        cpp_module04/ex02/AAnimal.cpp
+        cpp_module04/ex02/AAnimal.hpp
+        cpp_module04/ex02/Animal.cpp
+        cpp_module04/ex02/Animal.hpp
+        cpp_module04/ex02/Brain.cpp
+        cpp_module04/ex02/Brain.hpp
+        cpp_module04/ex02/Cat.cpp
+        cpp_module04/ex02/Cat.hpp
+        cpp_module04/ex02/Dog.cpp
+        cpp_module04/ex02/Dog.hpp
+        cpp_module04/ex02/main.cpp
+        cpp_module04/ex02/WrongAnimal.cpp
+        cpp_module04/ex02/WrongAnimal.hpp
+        cpp_module04/ex02/WrongCat.cpp
+        cpp_module04/ex02/WrongCat.hpp
+        cpp_module04/ex03/AMateria.cpp
+        cpp_module04/ex03/AMateria.hpp
+        cpp_module04/ex03/Character.cpp
+        cpp_module04/ex03/Character.hpp
+        cpp_module04/ex03/Cure.cpp
+        cpp_module04/ex03/Cure.hpp
+        cpp_module04/ex03/Ice.cpp
+        cpp_module04/ex03/Ice.hpp
+        cpp_module04/ex03/ICharacter.hpp
+        cpp_module04/ex03/IMateriaSource.hpp
+        cpp_module04/ex03/main.cpp
+        cpp_module04/ex03/MateriaSource.cpp
+        cpp_module04/ex03/MateriaSource.hpp
+        cpp_module05/ex00/Bureaucrat.cpp
+        cpp_module05/ex00/Bureaucrat.hpp
+        cpp_module05/ex00/main.cpp)

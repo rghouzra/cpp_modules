@@ -30,7 +30,6 @@ public:
 	
 		private:
 			std::string exception;
-	
 		public:
 			GradeException(std::string _exception);
 			~GradeException() throw();

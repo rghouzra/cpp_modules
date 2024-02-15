@@ -3,7 +3,7 @@
 class Data
 {
 private:
-	int d;
+	// int d;
 };
 
 #endif

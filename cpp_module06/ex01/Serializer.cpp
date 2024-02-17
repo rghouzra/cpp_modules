@@ -13,15 +13,13 @@ Serializer::~Serializer()
     std::cout << "Serializer : Destructor Called" << std::endl;
 }
 
-Serializer::Serializer(const Serializer& obj)
-{
+Serializer::Serializer(const Serializer& obj){
     std::cout << "Copy Constructor Called" << std::endl;
     if (this != &obj)
         *this = obj;
 }
 
-Serializer& Serializer::operator=(const Serializer& obj)
-{
+Serializer& Serializer::operator=(const Serializer& obj){
     std::cout << "Copy Assignment Operator Called" << std::endl;
     if (this != &obj)
     {
@@ -32,7 +30,7 @@ Serializer& Serializer::operator=(const Serializer& obj)
 }
 
 uintptr_t Serializer::serialize(Data* ptr){
-(void)ptr;
+    (void)ptr;
     return uintptr_t(0);
 }
 Data* Serializer::deserialize(uintptr_t raw){

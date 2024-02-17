@@ -1,10 +1,7 @@
-//
-// Created by reda ghouzraf on Mon Feb 12 03:18:32 2024
-//
-#include "Serializer.hpp"
+#include <iostream>
+#include <bitset>
 
-int main()
-{
-    // Your Code
-    return 0;
+int main() {
+   char n = '3';
+   int a = int(n);
 }

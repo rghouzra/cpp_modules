@@ -30,10 +30,8 @@ Serializer& Serializer::operator=(const Serializer& obj){
 }
 
 uintptr_t Serializer::serialize(Data* ptr){
-    (void)ptr;
-    return uintptr_t(0);
+    return reinterpret_cast<uintptr_t>(ptr);
 }
 Data* Serializer::deserialize(uintptr_t raw){
-    (void)raw;
-    return NULL;
+    return reinterpret_cast<Data*>(raw);
 }

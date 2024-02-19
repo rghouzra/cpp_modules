@@ -2,8 +2,7 @@
 #define DATA_HPP
 class Data
 {
-private:
-	// int d;
+public:
+	int d;
 };
-
 #endif

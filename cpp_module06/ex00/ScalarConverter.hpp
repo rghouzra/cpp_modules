@@ -7,6 +7,7 @@
 #include <iostream>
 #include <climits>
 #include <iomanip>
+
 #define STRING_EQUALS(str, arr) (str.compare(arr) == 0)
 
 #define IS_SPECIAL_FLOAT_STRING(str) \
@@ -43,7 +44,7 @@ class ScalarConverter
 public:
     ~ScalarConverter();
     ScalarConverter& operator=(const ScalarConverter& obj);
-    static void convert(const std::string &string); 
+    static void convert(const std::string &string);
 private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter& obj);

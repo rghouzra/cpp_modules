@@ -30,7 +30,7 @@ void identify(Base& p){
 	}
 	catch(std::exception &e){
 		try{
-			if(e.what() ==exception)
+			if(IS_EQUAL(e.what(),exception))
 			{
 				B &ref = dynamic_cast<B&>(p);
 						(void)ref;
@@ -39,7 +39,7 @@ void identify(Base& p){
 		}
 		catch(std::exception &e){
 			try{
-				if(e.what() ==exception)
+				if(IS_EQUAL(e.what(),exception))
 				{
 					C &ref = dynamic_cast<C&>(p);
 					(void)ref;

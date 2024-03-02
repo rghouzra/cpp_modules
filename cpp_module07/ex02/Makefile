@@ -2,7 +2,7 @@
 # Created by reda ghouzraf on Sat Mar  2 14:58:30 2024
 #
 NAME = Array
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address
 CC = c++
 STD = -std=c++98
 SRC = $(wildcard *.cpp)

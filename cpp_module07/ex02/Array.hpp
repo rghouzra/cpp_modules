@@ -7,14 +7,11 @@
 #include <iostream>
 
 
+template<typename t>
 class Array
 {
 public:
-    Array();
-    Array(const Array& obj);
-    ~Array();
-    Array& operator=(const Array& obj);
-
+    
 private:
 };
 #endif /*Array_HPP*/

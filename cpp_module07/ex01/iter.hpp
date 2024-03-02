@@ -6,17 +6,13 @@
 
 #include <iostream>
 
-template <typename type1, typename type2>
-void iter(type1 *arr, type2 len, void(*ptrf)(type1 x)){
+template <typename type1, typename type2, typename type3>
+
+void iter(type1 *arr, type2 len, void(*ptrf)(type3 x)){
     for (int i = 0; i < len; i++)
     {
         ptrf(arr[i]);
     }
 }
 
-template<typename t>
-void func(t x)
-{
-    std::cout << x << '\n';
-}
 #endif /*iter_HPP*/

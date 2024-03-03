@@ -45,6 +45,15 @@ void Span::addNumber(int nbr){
     throw std::runtime_error("size is too large");
 }
 
+void Span::addMultipleNUmbers(std::vector<int>::iterator begin,std::vector<int>::iterator end){
+    // if(!p)
+    //     throw std::runtime_error("invalid address");
+    // if(size + arr.size() <= arr.capacity()){
+    arr.insert(arr.end(),begin , end);
+        return ;
+    // }
+    throw std::runtime_error("size is too large");
+}
 
 int Span::longestSpan(){
     std::vector<int>::iterator begin;
@@ -70,6 +79,8 @@ int solve(const std::vector<int> &arr){
     }
     return *spans.begin();
 }
+
+
 
 int Span::shortestSpan(){
     if(arr.size() < 2)

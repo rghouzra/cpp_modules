@@ -1,8 +1,8 @@
 #
-# Created by reda ghouzraf on Sun Mar  3 15:17:30 2024
+# Created by reda ghouzraf on Sun Mar  3 18:01:46 2024
 #
-NAME = Span
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+NAME = MutantStack
+FLAGS = -Wall -Wextra -Werror
 CC = c++
 STD = -std=c++98
 SRC = $(wildcard *.cpp)

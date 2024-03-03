@@ -20,6 +20,7 @@ public:
     Span& operator=(const Span& obj);
     const std::vector<int> &getArray() const;
     void addNumber(int nbr);
+    void addMultipleNUmbers(std::vector<int>::iterator begin,std::vector<int>::iterator end);
     int shortestSpan();
     int longestSpan();
 

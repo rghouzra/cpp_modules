@@ -45,13 +45,17 @@ void Span::addNumber(int nbr){
     throw std::runtime_error("size is too large");
 }
 
+std::ostream &operator<<(std::ostream &os, const std::vector<int>::iterator &i) {
+  os << &i;
+  return os;
+}
 void Span::addMultipleNUmbers(std::vector<int>::iterator begin,std::vector<int>::iterator end){
-    // if(!p)
-    //     throw std::runtime_error("invalid address");
-    // if(size + arr.size() <= arr.capacity()){
-    arr.insert(arr.end(),begin , end);
+
+
+    if((end - begin) + arr.size() <= arr.capacity()){
+      arr.insert(arr.end(),begin , end);
         return ;
-    // }
+    }
     throw std::runtime_error("size is too large");
 }
 

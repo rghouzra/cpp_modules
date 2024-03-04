@@ -9,8 +9,6 @@
 class Form;
 #include "Bureaucrat.hpp"
 
-
-
 class Form
 {
 public:
@@ -22,7 +20,7 @@ public:
 //setters
     void setSigned(bool _bool);
 //getters
-    
+
     int16_t GetRequiredGradeExec() const;
     int16_t GetRequiredGradeSign() const;
     bool getSigned()const;
@@ -35,11 +33,11 @@ private:
     const int16_t required_grade_exec;
     const int16_t required_grade_sign;
 
-    //inner class 
+    //inner class
     class GradeException: public std::exception{
 		private:
 			std::string exception;
-	
+
 		public:
 			GradeException(std::string _exception);
 			~GradeException() throw();

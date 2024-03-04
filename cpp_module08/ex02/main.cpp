@@ -7,30 +7,27 @@
 #include <deque>
 #include <iostream>
 
-// template <typename t>
-// class Test{
-//     public:
-//     typedef int myType;
-//    static int myVar;
-// };
-
-// template <typename t>
-// class Dummy{
-//     public:
-//     typedef  Test<int>::myType __TEST;
-// };
-int main()
-{
-
-    MutantStack<int>a;
-    a.push(4);
-    a.push(44);
-    a.push(444);
-    a.push(4444);
-    a.push(44444);
-    MutantStack<int>::iterator b = a.begin();
-    MutantStack<int>::iterator e = a.end();
-    for(MutantStack<int>::iterator i = b; i < e; i++){
-        std::cout << *i << '\n';
+int main(){
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+    std::cout << *it << std::endl;
+    ++it;
     }
+    std::stack<int> s(mstack);
+    return 0;
 }

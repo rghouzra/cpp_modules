@@ -27,7 +27,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	class GradeException: public std::exception{
-	
+
 		private:
 			std::string exception;
 		public:

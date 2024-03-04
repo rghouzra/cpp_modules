@@ -7,23 +7,10 @@
 #include <iostream>
 #include <stack>
 
-
-// class MutantStack
-// {
-// public:
-//     MutantStack();
-//     MutantStack(const MutantStack& obj);
-//     ~MutantStack();
-//     MutantStack& operator=(const MutantStack& obj);
-
-// private:
-// };
-
 template<typename T>
-class MutantStack{
+class MutantStack: public std::stack<T>{
     std::deque<T> UnderlyingC;
     public:
-
     typedef typename std::deque<T>::iterator iterator;
 
     iterator begin(){
@@ -34,7 +21,7 @@ class MutantStack{
         return  UnderlyingC.end();
     }
 
-    void push(const T val){
+   void push(const T val){
         UnderlyingC.push_front(val);
     }
 
@@ -45,7 +32,28 @@ class MutantStack{
     const T &top(void){
         return UnderlyingC[0];
     }
+    size_t size(void){
+        return UnderlyingC.size();
+    }
+
+
+
+    MutantStack(const MutantStack &obj){
+        if(this != &obj){
+            this->UnderlyingC = obj.UnderlyingC;
+        }
+    }
+    MutantStack &operator=(const MutantStack &obj){
+        if(this != &obj){
+            this->UnderlyingC = obj.UnderlyingC;
+        }
+    }
+
+    MutantStack(){
+
+    }
+    ~MutantStack(){
+
+    }
 };
-
-
 #endif /*MutantStack_HPP*/

@@ -1,12 +1,12 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(){
-	// std::cout  <<"Constructor called\n";
+	std::cout  <<"Constructor called\n";
 	value = 0;
 }
 
 int Fixed::toInt( void ) const{
-	
+
 	return value >> nb_fract_bits;
 }
 
@@ -105,7 +105,7 @@ Fixed Fixed::operator/(const Fixed &o){
 }
 
 Fixed::Fixed(const Fixed &o){
-	// std::cout  <<"copy constructor called\n";
+	std::cout  <<"copy constructor called\n";
 	*this = o;
 }
 
@@ -117,7 +117,7 @@ Fixed::Fixed(int i_in){
 
 Fixed::Fixed(float f_in){
 	// std::cout <<"float constructor has been called\n";
-	
+
 	value = roundf(f_in * (1 << nb_fract_bits));
 }
 
@@ -135,7 +135,7 @@ int Fixed::getRawBits(void)const{
 }
 
 void Fixed::operator=(const Fixed &o) {
-	// std::cout  <<"copy assignment op called\n";
+	std::cout  <<"copy assignment op called\n";
 	value = o.getRawBits();
 }
 

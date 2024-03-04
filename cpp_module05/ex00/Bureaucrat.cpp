@@ -77,9 +77,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
     return (*this);
 }
 
-
-
-
 //inner class implementation
 Bureaucrat::GradeException::~GradeException() throw() {}
 

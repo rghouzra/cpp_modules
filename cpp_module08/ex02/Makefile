@@ -2,7 +2,7 @@
 # Created by reda ghouzraf on Sun Mar  3 18:01:46 2024
 #
 NAME = MutantStack
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 CC = c++
 STD = -std=c++98
 SRC = $(wildcard *.cpp)

@@ -49,6 +49,7 @@ std::ostream &operator<<(std::ostream &os, const std::vector<int>::iterator &i) 
   os << &i;
   return os;
 }
+
 void Span::addMultipleNUmbers(std::vector<int>::iterator begin,std::vector<int>::iterator end){
 
 

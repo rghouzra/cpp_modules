@@ -5,16 +5,47 @@
 #define MutantStack_HPP
 
 #include <iostream>
+#include <stack>
 
 
-class MutantStack
-{
-public:
-    MutantStack();
-    MutantStack(const MutantStack& obj);
-    ~MutantStack();
-    MutantStack& operator=(const MutantStack& obj);
+// class MutantStack
+// {
+// public:
+//     MutantStack();
+//     MutantStack(const MutantStack& obj);
+//     ~MutantStack();
+//     MutantStack& operator=(const MutantStack& obj);
 
-private:
+// private:
+// };
+
+template<typename T>
+class MutantStack{
+    std::deque<T> UnderlyingC;
+    public:
+
+    typedef typename std::deque<T>::iterator iterator;
+
+    iterator begin(){
+        return  UnderlyingC.begin();
+    }
+
+    iterator end(){
+        return  UnderlyingC.end();
+    }
+
+    void push(const T val){
+        UnderlyingC.push_front(val);
+    }
+
+    void pop(void){
+        UnderlyingC.pop_front();
+    }
+
+    const T &top(void){
+        return UnderlyingC[0];
+    }
 };
+
+
 #endif /*MutantStack_HPP*/

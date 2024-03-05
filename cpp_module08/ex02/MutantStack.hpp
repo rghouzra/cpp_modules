@@ -7,6 +7,13 @@
 #include <iostream>
 #include <stack>
 
+/*
+        Some names denote types or templates. In general,
+        whenever a name is encountered it is necessary to determine whether that name denotes
+        one of these entities before continuing to parse the program that contains it.
+        The process that determines this is called name lookup.
+*/
+
 template<typename T>
 class MutantStack: public std::stack<T>{
     std::deque<T> UnderlyingC;

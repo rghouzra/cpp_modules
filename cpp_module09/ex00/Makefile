@@ -2,7 +2,7 @@
 # Created by reda ghouzraf on Tue Mar  5 11:29:17 2024
 #
 NAME = btc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 CC = c++
 STD = -std=c++98
 SRC = $(wildcard *.cpp)

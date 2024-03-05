@@ -13,23 +13,26 @@ BitcoinExchange::~BitcoinExchange()
     std::cout << "BitcoinExchange : Destructor Called" << std::endl;
 }
 
+
 bool HaveDbExtension(char *FileName, size_t FileNameLength)
 {
     (void)FileName;
-    int lastindex = FileNameLength - 1;
+
+    int lastindex = FileNameLength;
     int i = lastindex - 4;
     std::string chars ="";
     if(i < 0)
         return false;
     while (i < lastindex)
     {
-        // chars +
+        chars += FileName[i++];
     }
-    return true;
+    return (chars==".csv");
 }
 
 void fillDataBase(std::map<std::string, float> &db){
     DIR *d = opendir(".");
+    bool exist = false;
     (void)db;
     if(!d)
         throw std::runtime_error(strerror(errno));
@@ -37,8 +40,12 @@ void fillDataBase(std::map<std::string, float> &db){
     while ((currentFile = readdir(d)) != NULL)
     {
         if(HaveDbExtension(currentFile->d_name, currentFile->d_namlen)){
-            // fillMap(db )
+            exist = true;
+            
         }
     }
     closedir(d);
+
+    if(!exist)
+        throw std::runtime_error("no database file in the current directory");
 }

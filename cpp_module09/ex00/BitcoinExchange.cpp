@@ -41,7 +41,7 @@ bool checkdbformat(std::ifstream &dbfile){
 //"date,exchange_rate"
 void read_and_store(std::string dbFileName, std::map<std::string, float> &db){
     std::ifstream dbFile;
-
+    std::string line;
     (void)db;
     dbFile.open(dbFileName);
     if(!dbFile.is_open()){
@@ -49,6 +49,16 @@ void read_and_store(std::string dbFileName, std::map<std::string, float> &db){
     }
     if(!checkdbformat(dbFile))
         throw std::runtime_error("wrong database format");
+    while (true)
+    {
+        if(!getline(dbFile, line))
+            break;
+        std::istringstream lineStream(line);
+        std::string key, value;
+        getline(lineStream, key, ',');
+        getline(lineStream, value);
+        db[key] = atof(value.c_str());
+    }
 }
 
 void fillDataBase(std::map<std::string, float> &db){

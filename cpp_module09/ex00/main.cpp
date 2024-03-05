@@ -9,9 +9,12 @@ int main(int ac, char **av)
     try{
         std::map<std::string, float>db;
         fillDataBase(db);
+        std::map<std::string, float>::iterator begin = db.begin();
+        std::map<std::string, float>::iterator end = db.end();
+
         if(ac != 2)
             throw std::runtime_error("Error: you must provide file");
-        (void)av;
+        
     }
     catch(std::exception &e){
         std::cerr << e.what();

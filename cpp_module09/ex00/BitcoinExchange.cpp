@@ -3,15 +3,22 @@
 //
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
+BitcoinExchange::BitcoinExchange(const std::map<std::string , float> &_db, std::string _inputFileName):db(_db),inputFileName(_inputFileName)
 {
-    std::cout << "BitcoinExchange : Default Constructor Called" << std::endl;
+
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
     std::cout << "BitcoinExchange : Destructor Called" << std::endl;
 }
+
+
+void BitcoinExchange::eval(){
+    
+}
+
+/************/
 
 /*
     * check filename extension
@@ -31,7 +38,6 @@ bool HaveDbExtension(char *FileName, size_t FileNameLength)
     }
     return (chars==".csv");
 }
-
 
 bool checkdbformat(std::ifstream &dbfile){
     std::string line;

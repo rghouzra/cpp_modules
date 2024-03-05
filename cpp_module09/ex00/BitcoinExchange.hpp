@@ -12,10 +12,12 @@
 class BitcoinExchange
 {
 public:
-    BitcoinExchange();
+    BitcoinExchange(const std::map<std::string,float> &_db, std::string _inputFileName);
     ~BitcoinExchange();
-
+    void eval();
 private:
+    const std::map<std::string , float> &db;
+    std::string inputFileName;
 };
 
 void fillDataBase(std::map<std::string, float> &db);

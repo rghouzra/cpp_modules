@@ -8,13 +8,12 @@ int main(int ac, char **av)
 {
     try{
         std::map<std::string, float>db;
-        fillDataBase(db);
-        std::map<std::string, float>::iterator begin = db.begin();
-        std::map<std::string, float>::iterator end = db.end();
 
+        fillDataBase(db);
         if(ac != 2)
             throw std::runtime_error("Error: you must provide file");
-        
+        BitcoinExchange obj(db, av[1]);
+        obj.eval();
     }
     catch(std::exception &e){
         std::cerr << e.what();

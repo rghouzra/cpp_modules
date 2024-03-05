@@ -7,7 +7,7 @@
 #include <iostream>
 #include <map>
 #include <dirent.h>
-
+#include <fstream>
 class BitcoinExchange
 {
 public:

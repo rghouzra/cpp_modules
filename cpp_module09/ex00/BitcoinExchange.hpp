@@ -14,7 +14,7 @@ class BitcoinExchange
 public:
     BitcoinExchange(const std::map<std::string,float> &_db, std::string _inputFileName);
     ~BitcoinExchange();
-    void eval();
+    void evalINputFile();
 private:
     const std::map<std::string , float> &db;
     std::string inputFileName;

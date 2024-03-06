@@ -13,7 +13,7 @@ int main(int ac, char **av)
         if(ac != 2)
             throw std::runtime_error("Error: you must provide file");
         BitcoinExchange obj(db, av[1]);
-        obj.eval();
+        obj.evalINputFile();
     }
     catch(std::exception &e){
         std::cerr << e.what();

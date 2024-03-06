@@ -14,11 +14,27 @@ BitcoinExchange::~BitcoinExchange()
 }
 
 
-void BitcoinExchange::eval(){
-    
+bool CheckIsValidINputFileFormat(std::ifstream &inputFile){
+    std::string head;
+
+    getline(inputFile, head);
+    return (head == "date | value");
 }
 
-/************/
+void BitcoinExchange::evalINputFile(){
+    std::ifstream inputFile;
+
+    (void)db;
+    inputFile.open(inputFileName, std::ifstream::in);
+    if(!inputFile.is_open())
+        throw std::runtime_error("cant open input file");
+    if(!CheckIsValidINputFileFormat(inputFile)){
+        throw std::runtime_error("invalid input file format");
+    }
+
+}
+
+/***************************************************************************************************/
 
 /*
     * check filename extension
@@ -49,7 +65,7 @@ void read_and_store(std::string dbFileName, std::map<std::string, float> &db){
     std::ifstream dbFile;
     std::string line;
     (void)db;
-    dbFile.open(dbFileName);
+    dbFile.open(dbFileName, std::ifstream::in);
     if(!dbFile.is_open()){
         throw std::runtime_error("Cant open database file");
     }

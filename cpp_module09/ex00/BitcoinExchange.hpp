@@ -9,16 +9,21 @@
 #include <dirent.h>
 #include <fstream>
 #include <sstream>
+#include <time.h>
+typedef unsigned long long ULL;
+
 class BitcoinExchange
 {
 public:
-    BitcoinExchange(const std::map<std::string,float> &_db, std::string _inputFileName);
+    BitcoinExchange(const std::map<ULL,float> &_db, std::string _inputFileName);
     ~BitcoinExchange();
     void evalINputFile();
 private:
-    const std::map<std::string , float> &db;
+    const std::map<ULL , float> &db;
     std::string inputFileName;
 };
 
-void fillDataBase(std::map<std::string, float> &db);
+
+unsigned long long serializedate(std::string date);
+void fillDataBase(std::map<ULL, float> &db);
 #endif /*BitcoinExchange_HPP*/

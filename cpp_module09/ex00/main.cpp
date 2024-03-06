@@ -7,8 +7,7 @@
 int main(int ac, char **av)
 {
     try{
-        std::map<std::string, float>db;
-
+        std::map<ULL, float>db;
         fillDataBase(db);
         if(ac != 2)
             throw std::runtime_error("Error: you must provide file");

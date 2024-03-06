@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(STD) $(OBJ) -o $(NAME)
 %.o: %.cpp $(INC)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC)  $(STD) $(FLAGS) -c $< -o $@
 clean:
 	rm -rf $(OBJ)
 fclean: clean

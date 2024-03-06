@@ -32,6 +32,26 @@ bool havedigitatleast(std::string s){
         d += isdigit(s[i]);
     return (d != 0);
 }
+
+std::map<ULL, float>::const_iterator findLowerDate(ULL needle, const std::map<ULL, float>&db){
+    std::map<ULL, float>::const_iterator begin = db.begin();
+    std::map<ULL, float>::const_iterator curr = db.begin();
+    std::map<ULL, float>::const_iterator end = db.end();
+    ULL prev = 0;
+    ULL next = 0;
+    curr++;
+    while (begin != end && curr != end)
+    {
+        prev = begin->first;
+        next = curr->first;
+        if(needle > prev  && needle < next)
+            return begin;
+        curr++;
+        begin++;
+    }
+    return end;
+}
+
 bool CalculateBitcoinValue(std::string date, std::string svalue, const std::map<ULL, float>&db){
     ULL serializeddateval = serializedate(date);
     float val = atof(svalue.c_str());
@@ -46,7 +66,10 @@ bool CalculateBitcoinValue(std::string date, std::string svalue, const std::map<
     }
     else
     {
-        
+        position = findLowerDate(serializeddateval, db);
+        if(position == db.end())
+            return false;
+        std::cout << position->second * val << '\n';
     }
     ;
     return true;
@@ -175,5 +198,5 @@ unsigned long long serializedate(std::string date){
     day = atoll(sday.c_str());
     if ((year > 2025 || year < 1900)|| (month < 1 || month > 12) || ( day >31 || day< 0))
         return 0;
-    return ((year * 100000000) + (month* 1000000) + (day * 10000));
+    return ((year * 10000) + (month* 100) + (day ));
 }

@@ -3,8 +3,15 @@
 //
 #include "RPN.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-    // Your Code
+    if(ac != 2)
+        return 1;
+    try{
+        RPN obj(av[1]);
+    }
+    catch(std::exception &e){
+        std::cerr << e.what();
+    }
     return 0;
 }

@@ -26,13 +26,30 @@ bool checklineFormat(std::string date, std::string value){
     return 1;
 }
 
-
-bool CalculateBitcoinValue(std::string date, std::string value, const std::map<ULL, float>&db){
+bool havedigitatleast(std::string s){
+    int d = 0;
+    for (size_t i = 0; i < s.size(); i++)
+        d += isdigit(s[i]);
+    return (d != 0);
+}
+bool CalculateBitcoinValue(std::string date, std::string svalue, const std::map<ULL, float>&db){
     ULL serializeddateval = serializedate(date);
-    (void)value;
-    (void)db;
-    std::cout << serializeddateval << '\t' << value << '\n';
-    return (serializeddateval != 0);
+    float val = atof(svalue.c_str());
+
+    if( (val < 0 || val > 1000) || serializeddateval == 0 || !havedigitatleast(svalue))
+        return false;
+    std::cout << date << "=>";
+    std::map<ULL, float>::const_iterator position = db.find(serializeddateval);
+    if(position != db.end())
+    {
+        std::cout << position->second * val << '\n';
+    }
+    else
+    {
+        
+    }
+    ;
+    return true;
 }
 
 void BitcoinExchange::evalINputFile(){
@@ -158,5 +175,5 @@ unsigned long long serializedate(std::string date){
     day = atoll(sday.c_str());
     if ((year > 2025 || year < 1900)|| (month < 1 || month > 12) || ( day >31 || day< 0))
         return 0;
-    return ((year * 1000) + (month*100) + (day * 10));
+    return ((year * 100000000) + (month* 1000000) + (day * 10000));
 }

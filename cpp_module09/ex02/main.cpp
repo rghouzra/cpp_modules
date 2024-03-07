@@ -13,7 +13,7 @@ int main(int ac, char **av)
             throw std::runtime_error("Wrong number of args");
         }
         PmergeMe obj(av);
-        
+        obj.FordJohnsonAlgorithm();
     }
     catch(const std::exception& e)
     {

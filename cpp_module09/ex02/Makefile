@@ -2,7 +2,7 @@
 # Created by reda on Thu Mar  7 15:02:02 2024
 #
 NAME = PmergeMe
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 CC = c++
 STD = -std=c++98
 SRC = $(wildcard *.cpp)

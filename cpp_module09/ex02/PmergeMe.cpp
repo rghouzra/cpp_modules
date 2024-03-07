@@ -22,23 +22,65 @@ PmergeMe::PmergeMe(char **av)
     }
 }
 
-template<typename Cont, typename Pairs>
-void generatePairs(const Cont &c, Pairs &pairs){
-    size_t size = c.size();
-    int struggler = -1;
+void swap(int &a, int &b){
+    int tmp;
 
-    size -= (size & 1);
-    for (size_t i = 0; i < size; i+=2)
-    {
-        c.push_back(std::make_pair(c[i], c[i + 1]));
-    }
+    tmp = a;
+    a = b;
+    b = tmp;
 }
 
+template<typename Cont>
+void sort_pairs(Cont&pairs, size_t index){
+        if(index >= pairs.size())
+            return ;
+        for (int j = 0; j < (int)pairs.size() - 1; ++j){
+            if(pairs[j].first > pairs[j+1].first){
+                int tmpfirst, tmpsecond;
+
+                tmpfirst = pairs[j].first;
+                tmpsecond = pairs[j].second;
+                pairs[j].first = pairs[j + 1].first;
+                pairs[j].second = pairs[j + 1].second;
+                pairs[j + 1].first = tmpfirst;
+                pairs[j + 1].second = tmpsecond;
+            }
+        }
+    sort_pairs(pairs, index + 1);
+}
+
+template<typename Cont, typename Pairs>
+int generatePairs(const Cont &c, Pairs &pairs){
+    size_t size = c.size();
+    int struggler;
+
+    struggler = (size & 1 ? c[size - 1]: -1);
+    size -= (size & 1);
+    for (size_t i = 0; i < size; i+=2){
+        pairs.push_back(std::make_pair(c[i], c[i + 1]));
+    }
+    for (size_t i = 0; i < pairs.size(); i++){
+        if(pairs[i].second > pairs[i].first){
+          swap(pairs[i].first, pairs[i].second);
+        }
+    }
+    sort_pairs(pairs, 0);
+    // for (size_t i = 0; i < pairs.size(); i++){
+    //     std::cout << pairs[i].first << '\t' << pairs[i].second << '\n';
+    // }
+    return struggler;
+}
+
+
 void PmergeMe::FordJohnsonAlgorithm(){
-    std::vector<std::pair<int, int>> vecpairs;
-    std::deque<std::pair<int, int>> deqpairs;
-    generatePairs(vec, vecpairs);
-    generatePairs(deq, deqpairs);
+    std::vector<std::pair<int, int> > vecpairs;
+    std::deque<std::pair<int, int> > deqpairs;
+    std::vector<int> chainV;
+    std::deque<int > chainD;
+    int vstruggler;
+    int dstruggler;
+    vstruggler = generatePairs(vec, vecpairs);
+    dstruggler =  generatePairs(deq, deqpairs);
 }
 
 PmergeMe::~PmergeMe()

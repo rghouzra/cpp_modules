@@ -7,9 +7,11 @@ int main(int ac, char **av)
 {
     try
     {
-        if(ac < 3)
-            throw std::runtime_error("Wrong number of args");
+        ac--;
         av++;
+        if(ac < 2){
+            throw std::runtime_error("Wrong number of args");
+        }
         PmergeMe obj(av);
         
     }

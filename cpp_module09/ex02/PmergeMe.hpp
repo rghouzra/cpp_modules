@@ -13,11 +13,11 @@
 class PmergeMe
 {
 public:
+    void FordJohnsonAlgorithm();
     PmergeMe(char **av);
     ~PmergeMe();
 private:
     std::vector<int>vec;
     std::deque<int> deq;
-    std::list<int>  lis;
 };
 #endif /*PmergeMe_HPP*/

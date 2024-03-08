@@ -26,6 +26,8 @@ PmergeMe::PmergeMe(char **av)
 PmergeMe::~PmergeMe()
 {}
 
+/*---UTILS---*/
+
 void swap(int &a, int &b){
     int tmp;
 
@@ -33,6 +35,17 @@ void swap(int &a, int &b){
     a = b;
     b = tmp;
 }
+/*
+    * get jacobsthal number
+*/
+int JacobsthalNumber(int n){
+    if(n==0 || n == 1)
+        return n;
+    return JacobsthalNumber(n - 1) + 2 * JacobsthalNumber(n - 2);
+}
+/*---UTILS---*/
+
+
 
 template<typename Cont>
 void sort_pairs(Cont&pairs, size_t index){
@@ -71,23 +84,33 @@ int generatePairs(const Cont &c, Pairs &pairs){
     sort_pairs(pairs, 0);
     return struggler;
 }
-
+/*
+    *merge main chain and pend
+*/
 template<typename T1, typename T2>
 void mergepairs(T1 &Mainchain, const T2 &pairs){
     T1 jacobSthal;
     T1 pend;
-    for (size_t i = 0; i < pairs.size(); i++)
-    {
+
+    Mainchain.push_back(pairs[0].second);
+    for (size_t i = 1; i < pairs.size(); i++){
         Mainchain.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
-
-    for (size_t i = 0; i < pairs.size(); i++)
-    {
+    for (size_t i = 0; i < pend.size(); i++){
         jacobSthal.push_back(JacobsthalNumber(i));
     }
+    for (size_t i = 0; i < jacobSthal.size(); i++){
+        std::cout << jacobSthal[i] << '\n';
+    }
+
+    std::cout << "------------------------------------------\n";
 }
 
+
+/*
+    *ford jhonson algorithm
+*/
 void PmergeMe::FordJohnsonAlgorithm(){
     std::vector<std::pair<int, int> > vecpairs;
     std::deque<std::pair<int, int> > deqpairs;
@@ -95,15 +118,9 @@ void PmergeMe::FordJohnsonAlgorithm(){
     std::deque<int > chainD;
     int vstruggler;
     int dstruggler;
+
     vstruggler = generatePairs(vec, vecpairs);
     dstruggler =  generatePairs(deq, deqpairs);
     mergepairs(chainV, vecpairs);
     mergepairs(chainD, deqpairs);
-}
-
-/*****/
-int JacobsthalNumber(int n){
-    if(n==0 || n == 1)
-        return n;
-    return JacobsthalNumber(n - 1) + 2 * JacobsthalNumber(n - 2);
 }

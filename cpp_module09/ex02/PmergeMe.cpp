@@ -22,6 +22,10 @@ PmergeMe::PmergeMe(char **av)
     }
 }
 
+
+PmergeMe::~PmergeMe()
+{}
+
 void swap(int &a, int &b){
     int tmp;
 
@@ -65,12 +69,24 @@ int generatePairs(const Cont &c, Pairs &pairs){
         }
     }
     sort_pairs(pairs, 0);
-    // for (size_t i = 0; i < pairs.size(); i++){
-    //     std::cout << pairs[i].first << '\t' << pairs[i].second << '\n';
-    // }
     return struggler;
 }
 
+template<typename T1, typename T2>
+void mergepairs(T1 &Mainchain, const T2 &pairs){
+    T1 jacobSthal;
+    T1 pend;
+    for (size_t i = 0; i < pairs.size(); i++)
+    {
+        Mainchain.push_back(pairs[i].first);
+        pend.push_back(pairs[i].second);
+    }
+
+    for (size_t i = 0; i < pairs.size(); i++)
+    {
+        jacobSthal.push_back(JacobsthalNumber(i));
+    }
+}
 
 void PmergeMe::FordJohnsonAlgorithm(){
     std::vector<std::pair<int, int> > vecpairs;
@@ -81,9 +97,13 @@ void PmergeMe::FordJohnsonAlgorithm(){
     int dstruggler;
     vstruggler = generatePairs(vec, vecpairs);
     dstruggler =  generatePairs(deq, deqpairs);
+    mergepairs(chainV, vecpairs);
+    mergepairs(chainD, deqpairs);
 }
 
-PmergeMe::~PmergeMe()
-{
-
+/*****/
+int JacobsthalNumber(int n){
+    if(n==0 || n == 1)
+        return n;
+    return JacobsthalNumber(n - 1) + 2 * JacobsthalNumber(n - 2);
 }

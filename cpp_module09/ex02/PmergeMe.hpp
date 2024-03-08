@@ -20,4 +20,6 @@ private:
     std::vector<int>vec;
     std::deque<int> deq;
 };
+
+int JacobsthalNumber(int n);
 #endif /*PmergeMe_HPP*/

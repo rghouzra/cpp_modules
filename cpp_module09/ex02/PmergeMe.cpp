@@ -5,7 +5,7 @@
 
 
 /*
-    * store elements in a list
+    * store elements
 */
 PmergeMe::PmergeMe(char **av)
 {
@@ -84,6 +84,39 @@ int generatePairs(const Cont &c, Pairs &pairs){
     sort_pairs(pairs, 0);
     return struggler;
 }
+
+template<typename T1>
+int getcombination(T1 &pends, int index)
+{
+    if(index < 0 || index >= (int)pends.size())
+        return -1;
+    return pends[index];
+}
+
+template<typename T1>
+void merge_chain_pends(T1 &main, T1 &pends, T1 &js){
+   int index = 3;
+   (void)main;
+   for (size_t i = 0; i < pends.size(); i++)
+   {
+    std::cout<< pends[i] << '\n';
+   }
+
+   while (index < (int)js.size())
+   {
+        int low = js[index - 1];
+        int current = js[index];
+        while (current > low)
+        {
+            std::cout << js[current] - 1 << '\t';
+            int combination = getcombination(pends, js[current] - 1);
+            std::cout << combination << '\n';
+            current --;
+        }
+        index++;
+   }
+    throw std::runtime_error("");
+}
 /*
     *merge main chain and pend
 */
@@ -93,18 +126,14 @@ void mergepairs(T1 &Mainchain, const T2 &pairs){
     T1 pend;
 
     Mainchain.push_back(pairs[0].second);
-    for (size_t i = 1; i < pairs.size(); i++){
+    for (size_t i = 0; i < pairs.size(); i++){
         Mainchain.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
     for (size_t i = 0; i < pend.size(); i++){
         jacobSthal.push_back(JacobsthalNumber(i));
     }
-    for (size_t i = 0; i < jacobSthal.size(); i++){
-        std::cout << jacobSthal[i] << '\n';
-    }
-
-    std::cout << "------------------------------------------\n";
+    merge_chain_pends(Mainchain, pend, jacobSthal);
 }
 
 
@@ -124,3 +153,4 @@ void PmergeMe::FordJohnsonAlgorithm(){
     mergepairs(chainV, vecpairs);
     mergepairs(chainD, deqpairs);
 }
+

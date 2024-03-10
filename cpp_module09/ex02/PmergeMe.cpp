@@ -2,6 +2,7 @@
 // Created by reda on Thu Mar  7 15:02:02 2024
 //
 #include "PmergeMe.hpp"
+#include <algorithm>
 
 
 /*
@@ -97,15 +98,7 @@ int getcombination(T1 &pends, int index)
 template<typename T1>
 void merge(int combination, T1 & main){
     typename T1::iterator pos = std::lower_bound(main.begin(), main.end(), combination);
-    typename T1::iterator begin = main.begin();
-    // typename T1::iterator end = main.end();
-
-    while (begin  <= pos)
-    {
-        std::cout << *begin << '\t';
-        begin++;
-    }
-    std::cout << '\n';
+    main.insert(pos, combination);
 }
 
 template<typename T1>
@@ -113,16 +106,6 @@ void merge_chain_pends(T1 &main, T1 &pends, T1 &js){
     int index = 1;
     (void)pends;
     (void)main;
-    for (size_t i = 0; i < main.size(); i++)
-    {
-        std::cout << main[i] << '\t';
-    }
-    std::cout << "\n------------\n";
-    for (size_t i = 0; i < pends.size(); i++)
-    {
-        std::cout << pends[i] << '\t';
-    }
-    std::cout << "\n------------\n";
     while (index < (int)js.size())
     {
         int pos = js[index];
@@ -138,6 +121,9 @@ void merge_chain_pends(T1 &main, T1 &pends, T1 &js){
                 pos --;
         }
         index++;
+    }
+    for (int i = 0; i < (int)main.size();i++) {
+        std::cout << main[i] << '\n';
     }
     throw std::runtime_error("");
 }
@@ -160,6 +146,11 @@ void mergepairs(T1 &Mainchain, const T2 &pairs){
     merge_chain_pends(Mainchain, pend, jacobSthal);
 }
 
+template<typename T1>
+void insert_the_struggler(T1 &main, int struggler){
+    typename T1::iterator it = std::lower_bound(main.begin(),main.end(),struggler);
+    main.insert(it, struggler);
+}
 
 /*
     *ford jhonson algorithm
@@ -171,10 +162,17 @@ void PmergeMe::FordJohnsonAlgorithm(){
     std::deque<int > chainD;
     int vstruggler;
     int dstruggler;
-
+    (void)vstruggler;
+    (void)dstruggler;
     vstruggler = generatePairs(vec, vecpairs);
     dstruggler =  generatePairs(deq, deqpairs);
     mergepairs(chainV, vecpairs);
     mergepairs(chainD, deqpairs);
+    // insert_the_struggler(chainV, vstruggler);
+    // insert_the_struggler(chainD, dstruggler);
+    merge(vstruggler, chainV);
+    for (int i = 0; i < (int)chainV.size(); i++) {
+        std::cout << chainV[i] << '\t';
+    }
 }
 

@@ -93,28 +93,52 @@ int getcombination(T1 &pends, int index)
     return pends[index];
 }
 
+
+template<typename T1>
+void merge(int combination, T1 & main){
+    typename T1::iterator pos = std::lower_bound(main.begin(), main.end(), combination);
+    typename T1::iterator begin = main.begin();
+    // typename T1::iterator end = main.end();
+
+    while (begin  <= pos)
+    {
+        std::cout << *begin << '\t';
+        begin++;
+    }
+    std::cout << '\n';
+}
+
 template<typename T1>
 void merge_chain_pends(T1 &main, T1 &pends, T1 &js){
-   int index = 3;
-   (void)main;
-   for (size_t i = 0; i < pends.size(); i++)
-   {
-    std::cout<< pends[i] << '\n';
-   }
-
-   while (index < (int)js.size())
-   {
+    int index = 1;
+    (void)pends;
+    (void)main;
+    for (size_t i = 0; i < main.size(); i++)
+    {
+        std::cout << main[i] << '\t';
+    }
+    std::cout << "\n------------\n";
+    for (size_t i = 0; i < pends.size(); i++)
+    {
+        std::cout << pends[i] << '\t';
+    }
+    std::cout << "\n------------\n";
+    while (index < (int)js.size())
+    {
+        int pos = js[index];
         int low = js[index - 1];
-        int current = js[index];
-        while (current > low)
+        while (pos >low)
         {
-            std::cout << js[current] - 1 << '\t';
-            int combination = getcombination(pends, js[current] - 1);
-            std::cout << combination << '\n';
-            current --;
+            int combination = getcombination(pends, pos - 1);
+            if(combination < 0)
+                goto DECREMENT;
+            merge(combination, main);
+            goto DECREMENT;
+            DECREMENT:
+                pos --;
         }
         index++;
-   }
+    }
     throw std::runtime_error("");
 }
 /*
@@ -130,7 +154,7 @@ void mergepairs(T1 &Mainchain, const T2 &pairs){
         Mainchain.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
-    for (size_t i = 0; i < pend.size(); i++){
+    for (size_t i = 2; i < pend.size() + 2; i++){
         jacobSthal.push_back(JacobsthalNumber(i));
     }
     merge_chain_pends(Mainchain, pend, jacobSthal);

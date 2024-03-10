@@ -11,14 +11,25 @@
 PmergeMe::PmergeMe(char **av)
 {
     int i = 0;
+    struct timeval start_time, end_time;
+    vec_time_used = 0;
+    deq_time_used = 0;
+
     while (av[i])
     {
         int number;
         number = atoi(av[i]);
         if(number < 0)
             throw std::runtime_error("only positive integers");
+        gettimeofday(&start_time, NULL);
         deq.push_back(number);
+        gettimeofday(&end_time, NULL);
+        deq_time_used += time_difference(start_time, end_time);
+        gettimeofday(&start_time, NULL);
         vec.push_back(number);
+        gettimeofday(&end_time, NULL);
+        vec_time_used += time_difference(start_time, end_time);
+
         i++;
     }
 }
@@ -36,13 +47,9 @@ void swap(int &a, int &b){
     a = b;
     b = tmp;
 }
-/*
-    * get jacobsthal number
-*/
-int JacobsthalNumber(int n){
-    if(n==0 || n == 1)
-        return n;
-    return JacobsthalNumber(n - 1) + 2 * JacobsthalNumber(n - 2);
+
+float time_difference(struct timeval start,struct timeval end){
+    return (((end.tv_sec - start.tv_sec) * 1000)+ ((float)(end.tv_usec - start.tv_usec) / 1000));
 }
 /*---UTILS---*/
 
@@ -102,37 +109,18 @@ void merge(int combination, T1 & main){
 }
 
 template<typename T1>
-void merge_chain_pends(T1 &main, T1 &pends, T1 &js){
-    int index = 1;
+void merge_chain_pends(T1 &main, T1 &pends){
+    // int index = 1;
     (void)pends;
     (void)main;
-    while (index < (int)js.size())
-    {
-        int pos = js[index];
-        int low = js[index - 1];
-        while (pos >low)
-        {
-            int combination = getcombination(pends, pos - 1);
-            if(combination < 0)
-                goto DECREMENT;
-            merge(combination, main);
-            goto DECREMENT;
-            DECREMENT:
-                pos --;
-        }
-        index++;
-    }
-    for (int i = 0; i < (int)main.size();i++) {
-        std::cout << main[i] << '\n';
-    }
-    throw std::runtime_error("");
+    for (size_t i = 1; i < pends.size(); i++)
+        merge(pends[i], main);
 }
 /*
     *merge main chain and pend
 */
 template<typename T1, typename T2>
 void mergepairs(T1 &Mainchain, const T2 &pairs){
-    T1 jacobSthal;
     T1 pend;
 
     Mainchain.push_back(pairs[0].second);
@@ -140,10 +128,7 @@ void mergepairs(T1 &Mainchain, const T2 &pairs){
         Mainchain.push_back(pairs[i].first);
         pend.push_back(pairs[i].second);
     }
-    for (size_t i = 2; i < pend.size() + 2; i++){
-        jacobSthal.push_back(JacobsthalNumber(i));
-    }
-    merge_chain_pends(Mainchain, pend, jacobSthal);
+    merge_chain_pends(Mainchain, pend);
 }
 
 template<typename T1>
@@ -155,24 +140,49 @@ void insert_the_struggler(T1 &main, int struggler){
 /*
     *ford jhonson algorithm
 */
+template <typename T1>
+void print_elements(const T1 &container){
+    for (size_t i = 0; i < container.size(); i++)
+    {
+        std::cout << container[i] << "," << '\t';
+    }
+    std::cout << '\n';
+}
 void PmergeMe::FordJohnsonAlgorithm(){
     std::vector<std::pair<int, int> > vecpairs;
     std::deque<std::pair<int, int> > deqpairs;
+    struct timeval start, end;
     std::vector<int> chainV;
     std::deque<int > chainD;
     int vstruggler;
     int dstruggler;
-    (void)vstruggler;
-    (void)dstruggler;
+    /*---vector----*/
+    std::cout << "elements of vector:\n";
+    print_elements(vec);
+    gettimeofday(&start, NULL);
     vstruggler = generatePairs(vec, vecpairs);
-    dstruggler =  generatePairs(deq, deqpairs);
     mergepairs(chainV, vecpairs);
+    if(vstruggler != -1)
+        insert_the_struggler(chainV, vstruggler);
+    gettimeofday(&end, NULL);
+    vec_time_used += time_difference(start, end);
+    /*---deque----*/
+    std::cout << "\nelements of deque:\n";
+    print_elements(deq);
+    gettimeofday(&start, NULL);
+    dstruggler =  generatePairs(deq, deqpairs);
     mergepairs(chainD, deqpairs);
-    // insert_the_struggler(chainV, vstruggler);
-    // insert_the_struggler(chainD, dstruggler);
-    merge(vstruggler, chainV);
-    for (int i = 0; i < (int)chainV.size(); i++) {
-        std::cout << chainV[i] << '\t';
-    }
+    if(dstruggler != -1)
+        insert_the_struggler(chainD, dstruggler);
+    gettimeofday(&end, NULL);
+    deq_time_used += time_difference(start, end);
+    /********/
+    std::cout << "\n\n\nafter sort:\nelements of vector:\n";
+    print_elements(chainV);
+    std::cout << "\nelements of deque:\n";
+    print_elements(chainD);
+    std::cout << "\n\n\n\n\n";
+    std::cout << "time taken by vector to store and sort is: " <<vec_time_used ;
+    std::cout << "\ntime taken by deque to store and sort is: " <<deq_time_used ;
 }
 

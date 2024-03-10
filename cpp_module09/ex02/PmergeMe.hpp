@@ -8,6 +8,10 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/time.h>
 
 
 class PmergeMe
@@ -18,8 +22,10 @@ public:
     ~PmergeMe();
 private:
     std::vector<int>vec;
+    double vec_time_used;
+    double deq_time_used;
     std::deque<int> deq;
 };
 
-int JacobsthalNumber(int n);
+float time_difference(struct timeval start,struct timeval end);
 #endif /*PmergeMe_HPP*/

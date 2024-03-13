@@ -33,7 +33,7 @@ int16_t calc(int16_t left, int16_t right, char op){
 		case '*':
 			return left * right;
 		case '/':
-			if(!left)
+			if(!right)
 				throw std::runtime_error("error division by zero");
 			return left / right;
 	}
